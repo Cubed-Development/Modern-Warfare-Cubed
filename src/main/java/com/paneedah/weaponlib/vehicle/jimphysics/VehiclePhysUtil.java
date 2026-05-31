@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.vehicle.jimphysics;
 
-
 import net.minecraft.util.math.Vec3d;
 
 public class VehiclePhysUtil {

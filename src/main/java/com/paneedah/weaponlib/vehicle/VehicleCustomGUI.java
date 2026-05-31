@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.render.ScreenRenderer;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -202,10 +202,9 @@ public class VehicleCustomGUI extends Gui {
 
         Vec3d on2 = pattern.doAnimation(old, transmission.maxShiftTime, transmission.startGear, transmission.targetGear).scale(30.25);
 
-
         Vec3d oN = pattern.doAnimation(transmission.shiftTimer, transmission.maxShiftTime, transmission.startGear, transmission.targetGear).scale(30.25);
 
-        oN = GearShiftPattern.interpVec3d(on2, oN, MC.getRenderPartialTicks());
+        oN = InterpolationUtil.interpolateVector(on2, oN, MC.getRenderPartialTicks());
         double nX = oN.z;
         double nZ = -oN.x;
 
@@ -401,7 +400,7 @@ public class VehicleCustomGUI extends Gui {
 
         double pM = Math.sin(vehicle.ticksExisted / 2) * 3;
         double ppM = Math.sin((vehicle.ticksExisted - 1) / 2) * 3;
-        double iPM = InterpolationKit.interpolateValue(ppM, pM, MC.getRenderPartialTicks());
+        double iPM = InterpolationUtil.interpolateValue(ppM, pM, MC.getRenderPartialTicks());
 
 
         keyAnimator.tick();

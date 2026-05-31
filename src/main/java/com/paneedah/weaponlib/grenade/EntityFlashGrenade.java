@@ -174,7 +174,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
                 continue;
             }
 
-            final float dose = ClampUtil.clampMinFirst(getMaxDose(nearbyEntity), 0, 1);
+            final float dose = ClampUtil.clamp(getMaxDose(nearbyEntity), 0, 1);
 
             LightExposure exposure = CompatibleExposureCapability.getExposure(nearbyEntity, LightExposure.class);
 

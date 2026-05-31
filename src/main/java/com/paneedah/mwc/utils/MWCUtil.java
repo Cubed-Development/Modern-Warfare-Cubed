@@ -250,14 +250,6 @@ public class MWCUtil {
      */
     @SideOnly(Side.CLIENT)
     public static Vec3d getInterpolatedPlayerPos() {
-        EntityPlayer player = MC.player;
-
-        final float renderPartialTicks = MC.getRenderPartialTicks();
-
-        final double interpolatedX = (player.posX - player.prevPosX) * renderPartialTicks + player.prevPosX;
-        final double interpolatedY = (player.posY - player.prevPosY) * renderPartialTicks + player.prevPosY;
-        final double interpolatedZ = (player.posZ - player.prevPosZ) * renderPartialTicks + player.prevPosZ;
-
-        return new Vec3d(interpolatedX, interpolatedY, interpolatedZ);
+        return InterpolationUtil.interpolatedEntityPosition(MC.player);
     }
 }

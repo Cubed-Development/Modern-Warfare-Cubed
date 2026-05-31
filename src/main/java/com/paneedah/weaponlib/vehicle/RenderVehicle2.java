@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.vehicle;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.vehicle.collisions.*;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.SuspensionSolver;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.*;
@@ -336,7 +336,7 @@ public class RenderVehicle2 extends Render<Entity> {
 
 
         //if(entityVehicle.rotationPitch > 5) {
-        Vec3d startLift = InterpolationKit.interpolatedEntityPosition(entityVehicle);
+        Vec3d startLift = InterpolationUtil.interpolatedEntityPosition(entityVehicle);
         Vec3d endLift = startLift.subtract(new Vec3d(0, 10, 0).rotatePitch((float) Math.toRadians(entityVehicle.rotationPitch)).rotateYaw((float) Math.toRadians(-rotationYaw)));
         RayTraceResult rtr = entityVehicle.world.rayTraceBlocks(startLift, endLift, false, true, false);
         if (rtr != null) {

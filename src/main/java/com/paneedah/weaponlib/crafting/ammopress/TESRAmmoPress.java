@@ -1,11 +1,10 @@
 package com.paneedah.weaponlib.crafting.ammopress;
 
 import com.paneedah.weaponlib.crafting.base.TESRStation;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -73,7 +72,7 @@ public class TESRAmmoPress extends TESRStation<TileEntityAmmoPress> {
         GlStateManager.scale(MODEL_RESCALE_VALUE, MODEL_RESCALE_VALUE, MODEL_RESCALE_VALUE);
 
         // Render the actual model
-        double interp = InterpolationKit.interpolateValue(te.getPreviousWheelRotation(), te.getCurrentWheelRotation(), MC.getRenderPartialTicks());
+        double interp = InterpolationUtil.interpolateValue(te.getPreviousWheelRotation(), te.getCurrentWheelRotation(), MC.getRenderPartialTicks());
         model.render(null, (float) interp, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
 
         // Undo block state

@@ -45,8 +45,7 @@ public class MechanicalClutch {
         if (currentPressure <= engagementPoint) {
             return 0;
         }
-        double mu = (currentPressure - engagementPoint) / (1.0 - engagementPoint);
-        return mu;
+        return (currentPressure - engagementPoint) / (1.0 - engagementPoint);
         //return (1 - Math.cos(mu * Math.PI)) / 2;
     }
 

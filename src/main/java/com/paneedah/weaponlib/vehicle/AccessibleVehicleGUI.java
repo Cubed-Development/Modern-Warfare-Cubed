@@ -21,5 +21,4 @@ public class AccessibleVehicleGUI {
         VehicleCustomGUI.setLockAndKeyModels(key, lock, keyT, lockT);
     }
 
-
 }
