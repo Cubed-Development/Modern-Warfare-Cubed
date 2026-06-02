@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.gui;
 
 import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentContainer;

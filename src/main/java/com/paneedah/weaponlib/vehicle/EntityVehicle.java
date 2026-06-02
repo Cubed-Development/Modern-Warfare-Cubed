@@ -13,7 +13,7 @@ import com.paneedah.weaponlib.particle.vehicle.TireTracks;
 import com.paneedah.weaponlib.particle.vehicle.VehicleExhaustFlameParticle;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.vehicle.collisions.*;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelSolver;
@@ -266,7 +266,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     }
 
     public float getInterpolatedWheelRotation() {
-        return (float) InterpolationKit.interpolateValue(prevWheelRotationAngle, wheelRotationAngle,
+        return (float) InterpolationUtil.interpolateValue(prevWheelRotationAngle, wheelRotationAngle,
                 MC.getRenderPartialTicks());
     }
 
@@ -275,7 +275,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     }
 
     public float getInterpolatedYawDelta() {
-        return (float) InterpolationKit.interpolateValue(prevLastYawDelta, lastYawDelta,
+        return (float) InterpolationUtil.interpolateValue(prevLastYawDelta, lastYawDelta,
                 MC.getRenderPartialTicks());
     }
 
@@ -1472,7 +1472,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     }
 
     public float getInterpolatedLiftOffset() {
-        return (float) InterpolationKit.interpolateValue(prevLiftOffset, liftOffset,
+        return (float) InterpolationUtil.interpolateValue(prevLiftOffset, liftOffset,
                 MC.getRenderPartialTicks());
     }
 

@@ -99,14 +99,20 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         return false;
     }
 
+    /**
+    * Note to future editors: Whatever crafting tab is supposed to be seen by default
+    * when opening the AmmoPress must also be valid for getCraftingMode() == 1
+    * so that the initialized value defined in GUIContainerStation.java is a valid argument.
+    * Otherwise, the default tab will not be displayed until its corresponding gui button is clicked.
+    */
     @Override
     public void fillFilteredList() {
         filteredCraftingList.clear();
-        if (getCraftingMode() == 1) {
+        if (getCraftingMode() == CraftingGroup.BULLET.getID() || getCraftingMode() == 1) {
             filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.BULLET));
-        } else if (getCraftingMode() == 2) {
+        } else if (getCraftingMode() == CraftingGroup.MAGAZINE.getID()) {
             filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.MAGAZINE));
-        } else if (getCraftingMode() == 3) {
+        } else if (getCraftingMode() == CraftingGroup.GRENADE.getID()) {
             filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GRENADE));
         }
     }

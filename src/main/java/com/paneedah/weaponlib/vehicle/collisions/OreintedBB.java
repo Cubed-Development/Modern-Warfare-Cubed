@@ -1,10 +1,9 @@
 package com.paneedah.weaponlib.vehicle.collisions;
 
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.util.math.*;
-import org.lwjgl.opengl.GL11;
 
 import javax.vecmath.*;
 
@@ -98,7 +97,7 @@ public class OreintedBB {
     }
 
     public double qPTI(double a, double b, float t) {
-        return InterpolationKit.interpolateValue(a, b, t);
+        return InterpolationUtil.interpolateValue(a, b, t);
     }
 
     public void renderOBB() {

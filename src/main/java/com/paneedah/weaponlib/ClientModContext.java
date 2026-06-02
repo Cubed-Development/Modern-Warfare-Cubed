@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
 import com.paneedah.weaponlib.electronics.WirelessCameraRenderer;
 import com.paneedah.weaponlib.grenade.*;
-import com.paneedah.weaponlib.inventory.InventoryTabs;
+import com.paneedah.mwc.gui.inventory.InventoryTabHandler;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
@@ -75,7 +75,7 @@ public class ClientModContext extends CommonModContext {
         clientEventHandler = new ClientEventHandler(this);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
-        MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
+        MinecraftForge.EVENT_BUS.register(InventoryTabHandler.getInstance());
 
         MinecraftForge.EVENT_BUS.register(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 

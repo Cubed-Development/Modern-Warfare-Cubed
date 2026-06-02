@@ -162,15 +162,15 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Lombokified most of the codebase
 - Dependencies are now fully updated by Gradle
 - Updated dependencies:
-  - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 6.0.4
-  - Updated to [gradle-idea-ext-plugin](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.3
-  - Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 9.1.0
-  - Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 2.0.0
+  - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 6.0.9
+  - Updated to [gradle-idea-ext-plugin](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.4.1
+  - Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 9.5.0
+  - Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 2.0.2
   - Updated to [foojay-resolver](https://github.com/gradle/foojay-toolchains) 1.0.0
   - Updated to [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) 1.3.1
   - Updated to [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) 10.7
   - Updated to [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) 0.6
-  - Updated to [Gradle](https://gradle.org) 9.2.1
+  - Updated to [Gradle](https://gradle.org) 9.5.1
 
 ## Modern Warfare Cubed Version 0.1.9 Changelog - 2024-11-25
 

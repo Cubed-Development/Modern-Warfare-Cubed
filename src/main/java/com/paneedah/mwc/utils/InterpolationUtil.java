@@ -1,11 +1,11 @@
-package com.paneedah.weaponlib.vehicle.jimphysics;
+package com.paneedah.mwc.utils;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-public class InterpolationKit {
+public class InterpolationUtil {
 
 
     public static Vec3d interpolatedEntityPosition(Entity en) {

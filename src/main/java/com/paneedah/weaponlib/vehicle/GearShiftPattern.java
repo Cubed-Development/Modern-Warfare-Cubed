@@ -1,7 +1,9 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.Pair;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
+import lombok.NoArgsConstructor;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -14,34 +16,23 @@ import java.util.LinkedList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@NoArgsConstructor
 public class GearShiftPattern {
 
-    private final LinkedList<Branch> pattern = new LinkedList<>();
-
-    public GearShiftPattern() {
-
-    }
+    private final LinkedList<Branch> PATTERN = new LinkedList<>();
 
     public GearShiftPattern withNormalBranch(int g1, int g2) {
-        Vec3d v1 = new Vec3d(0.5, 0, (1.0 * pattern.size()));
-        Vec3d v2 = new Vec3d(-0.5, 0, (1.0 * pattern.size()));
+        Vec3d v1 = new Vec3d(0.5, 0, (1.0 * PATTERN.size()));
+        Vec3d v2 = new Vec3d(-0.5, 0, (1.0 * PATTERN.size()));
         return withBranch(v1, g1, v2, g2);
     }
 
     public GearShiftPattern withBranch(Vec3d v1, int g1, Vec3d v2, int g2) {
         Node n1 = new Node(v1, g1);
         Node n2 = new Node(v2, g2);
-        Branch b = new Branch(n1, n2, pattern.size());
-        pattern.add(b);
+        Branch b = new Branch(n1, n2, PATTERN.size());
+        PATTERN.add(b);
         return this;
-    }
-
-    public static double interpValue(double oldVal, double newVal, double step) {
-        return oldVal + (newVal - oldVal) * step;
-    }
-
-    public static Vec3d interpVec3d(Vec3d one, Vec3d two, double step) {
-        return new Vec3d(interpValue(one.x, two.x, step), interpValue(one.y, two.y, step), interpValue(one.z, two.z, step));
     }
 
     public void drawCenteredString(FontRenderer fontRendererIn, String text, double x, double y, int color, double scale) {
@@ -69,7 +60,7 @@ public class GearShiftPattern {
         BufferBuilder bb = t.getBuffer();
         bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
 
-        for (Branch b : pattern) {
+        for (Branch b : PATTERN) {
             Vec3d tG = b.topGear.pos;
             Vec3d bG = b.bottomGear.pos;
             Vec3d m = b.median;
@@ -101,7 +92,7 @@ public class GearShiftPattern {
         GlStateManager.enableTexture2D();
 
 
-        for (Branch b : pattern) {
+        for (Branch b : PATTERN) {
             Vec3d tG = b.topGear.pos;
             Vec3d bG = b.bottomGear.pos;
             Vec3d m = b.median;
@@ -174,10 +165,8 @@ public class GearShiftPattern {
         }
 
         double step = (globalStep - fB) / (sB - fB);
-        step = step;
 
-
-        return interpVec3d(f, s, step);
+        return InterpolationUtil.interpolateVector(f, s, step);
 		
 		
 		/*
@@ -227,8 +216,8 @@ public class GearShiftPattern {
             endGear = tempGear;
         }
 
-        for (int x = 0; x < pattern.size(); ++x) {
-            Branch b = pattern.get(x);
+        for (int x = 0; x < PATTERN.size(); ++x) {
+            Branch b = PATTERN.get(x);
             if (b.containsGear(startGear) && b.containsGear(endGear)) {
                 transitions.add(b.getGearPos(startGear));
                 transitions.add(b.median);

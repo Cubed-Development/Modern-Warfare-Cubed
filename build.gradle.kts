@@ -1,13 +1,13 @@
 import org.gradle.plugins.ide.idea.model.IdeaLanguageLevel
+import org.jetbrains.gradle.ext.Gradle
 import org.jetbrains.gradle.ext.runConfigurations
 import org.jetbrains.gradle.ext.settings
-import org.jetbrains.gradle.ext.Gradle
 
 plugins {
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.3"
-    id("com.gtnewhorizons.retrofuturagradle") version "2.0.0"
-    id("com.github.gmazzo.buildconfig") version "6.0.4"
-    id("io.freefair.lombok") version "9.1.0"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.4.1"
+    id("com.gtnewhorizons.retrofuturagradle") version "2.0.2"
+    id("com.github.gmazzo.buildconfig") version "6.0.9"
+    id("io.freefair.lombok") version "9.5.0"
 }
 
 group = "com.paneedah"
@@ -16,7 +16,7 @@ version = "0.2-Dev-8" // Versioning must follow Ragnarök versioning convention:
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "0.6"
+val redCoreVersion = "0.7.1"
 
 val groovyScriptVersion = "1.3.1"
 val mixinBooterVersion = "10.7"

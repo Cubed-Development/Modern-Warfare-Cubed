@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import lombok.NoArgsConstructor;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
@@ -25,7 +25,7 @@ public class SuspensionBox {
 
 
     public double pti(double o, double n) {
-        return InterpolationKit.interpolateValue(o, n, MC.getRenderPartialTicks());
+        return InterpolationUtil.interpolateValue(o, n, MC.getRenderPartialTicks());
     }
 
 }

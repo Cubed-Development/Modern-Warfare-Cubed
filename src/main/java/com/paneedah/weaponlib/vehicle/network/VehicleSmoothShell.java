@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.vehicle.network;
 
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import net.minecraft.entity.MoverType;
 import net.minecraft.util.math.Vec3d;
 
@@ -104,11 +104,11 @@ public class VehicleSmoothShell {
     }
 
     public double q(double a, double b, double mu) {
-        return InterpolationKit.interpolateValue(a, b, mu);
+        return InterpolationUtil.interpolateValue(a, b, mu);
     }
 
     public Vec3d qv(Vec3d a, Vec3d b, double mu) {
-        return InterpolationKit.interpolateVector(a, b, mu);
+        return InterpolationUtil.interpolateVector(a, b, mu);
     }
 
 

@@ -1,10 +1,9 @@
 package com.paneedah.weaponlib.animation.load;
 
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 import java.util.LinkedList;
 
@@ -33,13 +32,13 @@ public class BasicStateAnimator {
 
     public Vec3d getInterpolatedRotation() {
         double mu = MC.getRenderPartialTicks();
-        return InterpolationKit.interpolateVector(prevRot, currentRot, mu);
+        return InterpolationUtil.interpolateVector(prevRot, currentRot, mu);
 
     }
 
     public Vec3d getInterpolatedPosition() {
         double mu = MC.getRenderPartialTicks();
-        return InterpolationKit.interpolateVector(previousPosition, currentPosition, mu);
+        return InterpolationUtil.interpolateVector(previousPosition, currentPosition, mu);
     }
 
     public void applyGLTransforms() {
@@ -97,8 +96,8 @@ public class BasicStateAnimator {
             } else {
                 double mu = time / goingTransition.time;
 
-                currentPosition = InterpolationKit.interpolateVector(currentTransition.pos, goingTransition.pos, mu);
-                currentRot = InterpolationKit.interpolateVector(currentTransition.rot, goingTransition.rot, mu);
+                currentPosition = InterpolationUtil.interpolateVector(currentTransition.pos, goingTransition.pos, mu);
+                currentRot = InterpolationUtil.interpolateVector(currentTransition.rot, goingTransition.rot, mu);
 
             }
 

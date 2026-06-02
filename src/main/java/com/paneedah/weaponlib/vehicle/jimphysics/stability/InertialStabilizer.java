@@ -1,10 +1,9 @@
 package com.paneedah.weaponlib.vehicle.jimphysics.stability;
 
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 public class InertialStabilizer {
 
@@ -60,7 +59,7 @@ public class InertialStabilizer {
     public void updateCameraTransforms() {
         // POSITION ADJUSTMENTS //
 
-        position = InterpolationKit.interpolateVector(position, positionTarget, 0.005);
+        position = InterpolationUtil.interpolateVector(position, positionTarget, 0.005);
         prevRotationRoll = rotationRoll;
         double change = positionTarget.y - position.y;
 

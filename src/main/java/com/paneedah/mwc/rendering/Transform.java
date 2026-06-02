@@ -160,9 +160,9 @@ public final class Transform {
         if (x < 0 || y < 0 || z < 0) {
             LOGGER.warn("Something is setting one or more negative scale values to a transform.\nClamping to the range of 0 to biggest float.\nThis will cause visual issues.\nScale Values: X: {}, Y: {}, Z: {}", x, y, z, new IllegalArgumentException("Negative Scale for Transform"));
 
-            scale.x = ClampUtil.clampMinFirst(x, 0, Float.MAX_VALUE);
-            scale.y = ClampUtil.clampMinFirst(y, 0, Float.MAX_VALUE);
-            scale.z = ClampUtil.clampMinFirst(z, 0, Float.MAX_VALUE);
+            scale.x = ClampUtil.clamp(x, 0, Float.MAX_VALUE);
+            scale.y = ClampUtil.clamp(y, 0, Float.MAX_VALUE);
+            scale.z = ClampUtil.clamp(z, 0, Float.MAX_VALUE);
         } else {
             scale.x = x;
             scale.y = y;
