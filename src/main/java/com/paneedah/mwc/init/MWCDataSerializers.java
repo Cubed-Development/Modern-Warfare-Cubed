@@ -17,10 +17,10 @@ public class MWCDataSerializers {
 
         event.getRegistry().registerAll(
                 new DataSerializerEntry(VehicleDataSerializer.SERIALIZER)
-                        .setRegistryName("mwc", "vehicle_data"),
+                        .setRegistryName(ID, "vehicle_data"),
 
                 new DataSerializerEntry(VehiclePhysSerializer.SERIALIZER)
-                        .setRegistryName("mwc", "vehicle_phys")
+                        .setRegistryName(ID, "vehicle_phys")
         );
     }
 }
