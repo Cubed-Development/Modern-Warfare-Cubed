@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.KeyBindings;
-import com.paneedah.weaponlib.render.ScreenRenderer;
 import com.paneedah.mwc.utils.InterpolationUtil;
+import com.paneedah.weaponlib.render.ScreenModelRenderer;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -19,9 +19,6 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class VehicleCustomGUI extends Gui {
-
-    // SCALED RESOLUTION
-    public static final ScaledResolution SCALE_RES = new ScaledResolution(MC);
 
     // LOCK & KEY MODELS
     public static ModelBase keyModel;
