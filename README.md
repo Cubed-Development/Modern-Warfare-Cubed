@@ -3,7 +3,7 @@
 
 [![Patreon](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/patreon-plural_vector.svg)](https://patreon.com/ModernWarfareCubed)
 [![Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg)](https://discord.gg/k5WPk93K7b)
-[![ModDex rating](https://moddex.gg/badges/projects/modern-warfare-cubed/rating.svg?style=devin)](https://moddex.gg/mod/modern-warfare-cubed)
+[![ModDex Rating](https://moddex.gg/badges/projects/modern-warfare-cubed/rating.svg?style=devin)](https://moddex.gg/mod/modern-warfare-cubed)
 
 # Modern Warfare Cubed
 
