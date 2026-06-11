@@ -9,22 +9,24 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    inherit (pkgs) lib;
+
+    gradleJdk = pkgs.temurin-bin-26;
+    gameJdk = pkgs.temurin-bin-8;
   in {
     devShells.${system}.default = pkgs.mkShell {
       name = "mwc";
 
-      packages = with pkgs; [temurin-bin-26 temurin-bin-8 xrandr];
+      packages = [gradleJdk gameJdk pkgs.xrandr];
 
       env = {
-        JAVA_HOME = "${pkgs.temurin-bin-26}";
-
-        GRADLE_OPTS = builtins.concatStringsSep " " [
-          "-Dorg.gradle.java.installations.paths=${pkgs.temurin-bin-8},${pkgs.temurin-bin-26}"
+        GRADLE_OPTS = toString [
+          "-Dorg.gradle.java.installations.paths=${gradleJdk},${gameJdk}"
           "-Dorg.gradle.java.installations.auto-detect=false"
           "-Dorg.gradle.java.installations.auto-download=false"
         ];
 
-        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [
+        LD_LIBRARY_PATH = lib.makeLibraryPath (with pkgs; [
           libXcursor
           libXrandr
           libXxf86vm
