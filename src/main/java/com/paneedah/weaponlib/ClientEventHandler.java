@@ -319,7 +319,6 @@ public class ClientEventHandler {
         // Replaces the weather renderer.
         PostProcessPipeline.setWorldElements();
 
-        // Todo: Optimize this
         Interceptors.SCREENSHAKING_MANAGER.update(event.getPartialTicks());
 
         BULLET_HOLE_RENDERER.render();
