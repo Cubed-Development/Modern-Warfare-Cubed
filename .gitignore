@@ -1,9 +1,3 @@
-### Windows ###
-desktop.ini
-
-### macOS ###
-.DS_Store
-
 ### Gradle ###
 .gradle
 build
