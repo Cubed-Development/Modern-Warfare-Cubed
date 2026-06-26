@@ -5,6 +5,7 @@ import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.items.equipment.carryable.ItemCarryable;
 import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.weaponlib.*;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -28,7 +29,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
-import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @SideOnly(Side.CLIENT)
