@@ -27,11 +27,12 @@
         ];
 
         LD_LIBRARY_PATH = lib.makeLibraryPath (with pkgs; [
-          openal
           libXcursor
           libXrandr
           libXxf86vm
           libGL
+          openal
+          libpulseaudio
         ]);
       };
     };
