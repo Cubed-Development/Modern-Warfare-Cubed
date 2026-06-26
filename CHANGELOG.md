@@ -133,6 +133,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Fixed Grid shader
 - Fixed positions of many things in the mod being glitchy when getting far away from world origin
 - Fixed incompatibility with some mods that modify FOV (By [AnasDevO](https://github.com/AnasDevO) in [#583](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/583))
+- Fixed textures being unnecessarily rebinded (Should improve performance and mayhaps compatibility)
 
 ### Removed
 

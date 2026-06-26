@@ -32,295 +32,287 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @SideOnly(Side.CLIENT)
-public class StaticModelSourceRenderer extends ModelSource implements IBakedModel {
+public class StaticModelSourceRenderer extends ModelSource {
 
-    protected ModelSourceTransforms transforms;
+	protected ModelSourceTransforms transforms;
 
-    private final Pair<? extends IBakedModel, Matrix4f> pair = Pair.of((IBakedModel) this, null);
+	private final Pair<? extends IBakedModel, Matrix4f> pair = Pair.of((IBakedModel) this, null);
 
-    protected EntityLivingBase owner;
+	protected EntityLivingBase owner;
 
-    protected ItemStack itemStack;
+	protected ItemStack itemStack;
 
-    protected ItemCameraTransforms.TransformType transformType;
+	protected ItemCameraTransforms.TransformType transformType;
 
-    private class WeaponItemOverrideList extends ItemOverrideList {
-        public WeaponItemOverrideList(List<ItemOverride> overridesIn) {
-            super(overridesIn);
-        }
+	private class WeaponItemOverrideList extends ItemOverrideList {
+		public WeaponItemOverrideList(List<ItemOverride> overridesIn) {
+			super(overridesIn);
+		}
 
-        @Override
-        public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
-            StaticModelSourceRenderer.this.itemStack = stack;
-            StaticModelSourceRenderer.this.owner = entity;
-            return super.handleItemState(originalModel, stack, world, entity);
-        }
-    }
+		@Override
+		public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
+			StaticModelSourceRenderer.this.itemStack = stack;
+			StaticModelSourceRenderer.this.owner = entity;
+			return super.handleItemState(originalModel, stack, world, entity);
+		}
+	}
 
-    public StaticModelSourceRenderer(ModelSourceTransforms transforms) {
-        this.transforms = transforms;
-    }
+	public StaticModelSourceRenderer(ModelSourceTransforms transforms) {
+		this.transforms = transforms;
+	}
 
-    public void renderCustomEquipped(EntityPlayer player, ItemStack itemStack) {
-        RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
+	public void renderCustomEquipped(EntityPlayer player, ItemStack itemStack) {
+		RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
-        GlStateManager.pushMatrix();
+		GlStateManager.pushMatrix();
 
-        GlStateManager.scale(0.33f, 0.33f, 0.33f);
+		GlStateManager.scale(0.33f, 0.33f, 0.33f);
 
-//        float pivotOffsetX = 0f;
-//        float pivotOffsetY = 0f;
-//        float pivotOffsetZ = 0f;
-//        GlStateManager.translate(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
-        GlStateManager.rotate(180f, 0.001f, 0.0f, 0.0f);
-//        GlStateManager.translate(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
+		// float pivotOffsetX = 0f;
+		// float pivotOffsetY = 0f;
+		// float pivotOffsetZ = 0f;
+		// GlStateManager.translate(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
+		GlStateManager.rotate(180f, 0.001f, 0.0f, 0.0f);
+		// GlStateManager.translate(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
 
+		GlStateManager.translate(-0.5f, 0.5f, 0.5f);
 
-        GlStateManager.translate(-0.5f, 0.5f, 0.5f);
+		transforms.getCustomEquippedPositioning().run();
+		renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
 
-        transforms.getCustomEquippedPositioning().run();
-        renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
+		GlStateManager.popMatrix();
+	}
 
-        GlStateManager.popMatrix();
-    }
+	@Override
+	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
+		// TODO: Actually make rendering compatible with Emissive Renderer
+		if (net.minecraftforge.common.ForgeModContainer.allowEmissiveItems)
+			return Collections.emptyList();
 
-    @Override
-    public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
-        // Todo: Actually make rendering compatible with Emissive Renderer
-        if (net.minecraftforge.common.ForgeModContainer.allowEmissiveItems) {
-            return Collections.emptyList();
-        }
+		if (itemStack == null)
+			return Collections.emptyList();
 
-        if (itemStack == null) {
-            return Collections.emptyList();
-        }
+		if (transformType == null
+		        || transformType == ItemCameraTransforms.TransformType.GROUND
+		        || transformType == ItemCameraTransforms.TransformType.GUI
+		        || transformType == ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND
+		        || transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND) {
 
-        if (transformType == null || transformType == ItemCameraTransforms.TransformType.GROUND
-                || transformType == ItemCameraTransforms.TransformType.GUI
-                || transformType == ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND
-                || transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND
-        ) {
+			Tessellator tessellator = Tessellator.getInstance();
+			BufferBuilder worldrenderer = tessellator.getBuffer();
+			tessellator.draw();
+			GlStateManager.pushMatrix();
 
-            Tessellator tessellator = Tessellator.getInstance();
-            BufferBuilder worldrenderer = tessellator.getBuffer();
-            tessellator.draw();
-            GlStateManager.pushMatrix();
+			if (owner != null) {
+				if (transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND) {
 
-            if (owner != null) {
-                if (transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND) {
+					if (owner.isSneaking()) {
+						GlStateManager.translate(0.0F, -0.2F, 0.0F);
+					}
+				}
+			}
 
-                    if (owner.isSneaking()) {
-                        GlStateManager.translate(0.0F, -0.2F, 0.0F);
-                    }
-                }
-            }
+			final int currentTextureId = GlStateManager.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
 
-            int currentTextureId = GlStateManager.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
+			if (transformType == null && owner instanceof EntityPlayer) {
+				renderCustomEquipped((EntityPlayer) owner, itemStack);
+			} else {
+				renderItem();
+			}
 
-            if (transformType == null && owner instanceof EntityPlayer) {
-                renderCustomEquipped((EntityPlayer) owner, itemStack);
-            } else {
-                renderItem();
-            }
+			// Rebind the texture that was saved before our rendering, as it may have binded some other texture.
+			if (currentTextureId != GlStateManager.glGetInteger(GL11.GL_TEXTURE_BINDING_2D))
+				GlStateManager.bindTexture(currentTextureId);
 
-            // TODO: What the fuck is this piss of shit - Luna Mira Lage (Desoroxxx) 2025-12-28
-            if (currentTextureId != 0) {
-	            LOGGER.debug("Binding texture: {}", currentTextureId);
-                GlStateManager.bindTexture(currentTextureId);
-            }
+			GlStateManager.popMatrix();
+			worldrenderer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
+		}
 
-            GlStateManager.popMatrix();
-            worldrenderer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
-        }
+		// Reset the dynamic values.
+		this.owner = null;
+		this.itemStack = null;
+		this.transformType = null;
 
-        // Reset the dynamic values.
-        this.owner = null;
-        this.itemStack = null;
-        this.transformType = null;
+		return Collections.emptyList();
+	}
 
-        return Collections.emptyList();
-    }
+	@Override
+	public final boolean isAmbientOcclusion() {
+		return true;
+	}
 
-    @Override
-    public final boolean isAmbientOcclusion() {
-        return true;
-    }
+	@Override
+	public final boolean isGui3d() {
+		return true;
+	}
 
-    @Override
-    public final boolean isGui3d() {
-        return true;
-    }
+	@Override
+	public final boolean isBuiltInRenderer() {
+		return false;
+	}
 
-    @Override
-    public final boolean isBuiltInRenderer() {
-        return false;
-    }
+	@Override
+	public TextureAtlasSprite getParticleTexture() {
+		return MC.getTextureMapBlocks().getMissingSprite();
+	}
 
-    @Override
-    public TextureAtlasSprite getParticleTexture() {
-        return MC.getTextureMapBlocks().getMissingSprite();
-    }
+	@SideOnly(Side.CLIENT)
+	public void renderItem() {
+		GlStateManager.pushMatrix();
 
-    @SideOnly(Side.CLIENT)
-    public void renderItem() {
-        GlStateManager.pushMatrix();
+		GlStateManager.scale(-1, -1, 1);
 
-        GlStateManager.scale(-1, -1, 1);
+		final EntityPlayer player = MC.player;
+		final RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
-        final EntityPlayer player = MC.player;
-        final RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
+		switch (transformType) {
+		case GROUND:
+			transforms.getEntityPositioning().run();
+			break;
+		case GUI:
+			GlStateManager.scale(0.6F, 0.6F, 0.6F);
+			GlStateManager.translate(-0.7F, -0.8F, -0.1F);
+			GlStateManager.rotate(-30F, 1, 0, 0);
+			GlStateManager.rotate(40F, 0, 1, 0);
+			GlStateManager.rotate(0, 0, 0, 1);
+			transforms.getInventoryPositioning().run();
+			break;
+		case THIRD_PERSON_RIGHT_HAND:
+		case THIRD_PERSON_LEFT_HAND:
+			GlStateManager.scale(0.4F, 0.4F, 0.4F);
+			GlStateManager.translate(-1.5f, -2.4f, 1.3f);
+			GlStateManager.rotate(-100F, 1f, 0f, 0f);
+			GlStateManager.rotate(50F, 0f, 1f, 0f);
+			GlStateManager.rotate(0F, 0f, 0f, 1f);
+			transforms.getThirdPersonPositioning().run();
+			break;
+		case FIRST_PERSON_RIGHT_HAND:
+		case FIRST_PERSON_LEFT_HAND:
+			GlStateManager.scale(0.6F, 0.6F, 0.6F);
+			GlStateManager.rotate(-45F, 0f, 1f, 0f);
+			GlStateManager.translate(-0.3f, -0.855f, 0.5f);
+			transforms.getFirstPersonPositioning().run();
+			WeaponRenderer.renderLeftArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonLeftHandPositioning().run());
+			WeaponRenderer.renderRightArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonRightHandPositioning().run());
+			break;
+		default:
+		}
 
-        switch (transformType) {
-            case GROUND:
-                transforms.getEntityPositioning().run();
-                break;
-            case GUI:
-                GlStateManager.scale(0.6F, 0.6F, 0.6F);
-                GlStateManager.translate(-0.7F, -0.8F, -0.1F);
-                GlStateManager.rotate(-30F, 1, 0, 0);
-                GlStateManager.rotate(40F, 0, 1, 0);
-                GlStateManager.rotate(0, 0, 0, 1);
-                transforms.getInventoryPositioning().run();
-                break;
-            case THIRD_PERSON_RIGHT_HAND:
-            case THIRD_PERSON_LEFT_HAND:
-                GlStateManager.scale(0.4F, 0.4F, 0.4F);
-                GlStateManager.translate(-1.5f, -2.4f, 1.3f);
-                GlStateManager.rotate(-100F, 1f, 0f, 0f);
-                GlStateManager.rotate(50F, 0f, 1f, 0f);
-                GlStateManager.rotate(0F, 0f, 0f, 1f);
-                transforms.getThirdPersonPositioning().run();
-                break;
-            case FIRST_PERSON_RIGHT_HAND:
-            case FIRST_PERSON_LEFT_HAND:
-                GlStateManager.scale(0.6F, 0.6F, 0.6F);
-                GlStateManager.rotate(-45F, 0f, 1f, 0f);
-                GlStateManager.translate(-0.3f, -0.855f, 0.5f);
-                transforms.getFirstPersonPositioning().run();
-                WeaponRenderer.renderLeftArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonLeftHandPositioning().run());
-                WeaponRenderer.renderRightArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonRightHandPositioning().run());
-                break;
-            default:
-        }
+		renderModelSource(renderContext, itemStack, transformType, 0, 0, -0.4F, 0, 0, 0.08F);
 
+		GlStateManager.popMatrix();
+	}
 
-        renderModelSource(renderContext, itemStack, transformType, 0, 0, -0.4F, 0, 0, 0.08F);
+	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		if (itemStack.getItem() instanceof ItemCarryable) {
+			renderModelSourceCarryableItem(itemStack, transformType, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			return;
+		}
 
-        GlStateManager.popMatrix();
-    }
+		if (!(itemStack.getItem() instanceof com.paneedah.weaponlib.ModelSource)) {
+			throw new IllegalArgumentException();
+		}
 
+		GlStateManager.pushMatrix();
 
-    protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        if (itemStack.getItem() instanceof ItemCarryable) {
-            renderModelSourceCarryableItem(itemStack, transformType, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-            return;
-        }
+		com.paneedah.weaponlib.ModelSource modelSource = (com.paneedah.weaponlib.ModelSource) itemStack.getItem();
 
-        if (!(itemStack.getItem() instanceof com.paneedah.weaponlib.ModelSource)) {
-            throw new IllegalArgumentException();
-        }
+		for (Tuple<ModelBase, String> texturedModel : modelSource.getTexturedModels()) {
+			if (texturedModel.getV().startsWith("customskin_")) {
+				MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().replace("customskin_", "")));
+			} else {
+				MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
+			}
+			GlStateManager.pushMatrix();
+			GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
-        GlStateManager.pushMatrix();
+			ModelBase model = texturedModel.getU();
 
-        com.paneedah.weaponlib.ModelSource modelSource = (com.paneedah.weaponlib.ModelSource) itemStack.getItem();
+			if (transformType != null) {
+				switch (transformType) {
+				case GROUND:
+					transforms.getEntityModelPositioning().accept(model);
+					break;
+				case GUI:
+					transforms.getInventoryModelPositioning().accept(model);
+					break;
+				case THIRD_PERSON_RIGHT_HAND:
+				case THIRD_PERSON_LEFT_HAND:
+					transforms.getThirdPersonModelPositioning().accept(model);
+					break;
+				case FIRST_PERSON_RIGHT_HAND:
+				case FIRST_PERSON_LEFT_HAND:
+					transforms.getFirstPersonModelPositioning().accept(model);
+					break;
+				default:
+				}
+			}
 
-        for (Tuple<ModelBase, String> texturedModel : modelSource.getTexturedModels()) {
-            if (texturedModel.getV().startsWith("customskin_")) {
-                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().replace("customskin_", "")));
-            } else {
-                MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
-            }
-            GlStateManager.pushMatrix();
-            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
+			model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 
-            ModelBase model = texturedModel.getU();
+			GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+			GlStateManager.popMatrix();
+		}
 
-            if (transformType != null) {
-                switch (transformType) {
-                    case GROUND:
-                        transforms.getEntityModelPositioning().accept(model);
-                        break;
-                    case GUI:
-                        transforms.getInventoryModelPositioning().accept(model);
-                        break;
-                    case THIRD_PERSON_RIGHT_HAND:
-                    case THIRD_PERSON_LEFT_HAND:
-                        transforms.getThirdPersonModelPositioning().accept(model);
-                        break;
-                    case FIRST_PERSON_RIGHT_HAND:
-                    case FIRST_PERSON_LEFT_HAND:
-                        transforms.getFirstPersonModelPositioning().accept(model);
-                        break;
-                    default:
-                }
-            }
+		CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) modelSource.getPostRenderer();
 
-            model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		// * As far as I know, we only post render stuff that has an instance, so I added that check, this may be incorrect - Luna Mira Lage (Desoroxxx) 2025-11-19
+		if (postRenderer != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
+			renderContext.setAgeInTicks(-0.4f);
+			renderContext.setScale(0.08f);
+			renderContext.setCompatibleTransformType(transformType);
 
-            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
-            GlStateManager.popMatrix();
-        }
+			renderContext.setPlayerItemInstance(MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(renderContext.getPlayer(), itemStack));
 
+			GlStateManager.pushMatrix();
+			GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
-        CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) modelSource.getPostRenderer();
+			postRenderer.render(renderContext);
 
-        // * As far as I know, we only post render stuff that has an instance, so I added that check, this may be incorrect - Luna Mira Lage (Desoroxxx) 2025-11-19
-        if (postRenderer != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
-            renderContext.setAgeInTicks(-0.4f);
-            renderContext.setScale(0.08f);
-            renderContext.setCompatibleTransformType(transformType);
+			GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+			GlStateManager.popMatrix();
+		}
+		GlStateManager.popMatrix();
+	}
 
-            renderContext.setPlayerItemInstance(MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(renderContext.getPlayer(), itemStack));
+	protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
 
-            GlStateManager.pushMatrix();
-            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
+		final ModelBiped model = EquipmentModelPools.get(itemCarryable.modelName);
 
-            postRenderer.render(renderContext);
+		MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/models/" + itemCarryable.textureName));
 
-            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
-            GlStateManager.popMatrix();
-        }
-        GlStateManager.popMatrix();
-    }
+		if (transformType != null) {
+			switch (transformType) {
+			case GROUND:
+				transforms.getEntityModelPositioning().accept(model);
+				break;
+			case GUI:
+				transforms.getInventoryModelPositioning().accept(model);
+				break;
+			case THIRD_PERSON_RIGHT_HAND:
+			case THIRD_PERSON_LEFT_HAND:
+				transforms.getThirdPersonModelPositioning().accept(model);
+				break;
+			case FIRST_PERSON_RIGHT_HAND:
+			case FIRST_PERSON_LEFT_HAND:
+				transforms.getFirstPersonModelPositioning().accept(model);
+				break;
+			default:
+			}
+		}
 
-    protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
+		model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+	}
 
-        final ModelBiped model = EquipmentModelPools.get(itemCarryable.modelName);
+	@Override
+	public ItemOverrideList getOverrides() {
+		return new WeaponItemOverrideList(Collections.emptyList());
+	}
 
-        MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/models/" + itemCarryable.textureName));
-
-        if (transformType != null) {
-            switch (transformType) {
-                case GROUND:
-                    transforms.getEntityModelPositioning().accept(model);
-                    break;
-                case GUI:
-                    transforms.getInventoryModelPositioning().accept(model);
-                    break;
-                case THIRD_PERSON_RIGHT_HAND:
-                case THIRD_PERSON_LEFT_HAND:
-                    transforms.getThirdPersonModelPositioning().accept(model);
-                    break;
-                case FIRST_PERSON_RIGHT_HAND:
-                case FIRST_PERSON_LEFT_HAND:
-                    transforms.getFirstPersonModelPositioning().accept(model);
-                    break;
-                default:
-            }
-        }
-
-        model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-    }
-
-    @Override
-    public ItemOverrideList getOverrides() {
-        return new WeaponItemOverrideList(Collections.emptyList());
-    }
-
-    @Override
-    public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType cameraTransformType) {
-        this.transformType = cameraTransformType;
-        return pair;
-    }
+	@Override
+	public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType cameraTransformType) {
+		this.transformType = cameraTransformType;
+		return pair;
+	}
 }
