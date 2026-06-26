@@ -89,7 +89,7 @@ public class StaticModelSourceRenderer extends ModelSource {
 		if (net.minecraftforge.common.ForgeModContainer.allowEmissiveItems)
 			return Collections.emptyList();
 
-		if (itemStack == null)
+		if (itemStack == ItemStack.EMPTY)
 			return Collections.emptyList();
 
 		if (transformType == null
@@ -130,7 +130,7 @@ public class StaticModelSourceRenderer extends ModelSource {
 
 		// Reset the dynamic values.
 		this.owner = null;
-		this.itemStack = null;
+		this.itemStack = ItemStack.EMPTY;
 		this.transformType = null;
 
 		return Collections.emptyList();
