@@ -45,46 +45,46 @@ public class StaticModelSourceRenderer extends ModelSource {
 	protected ItemCameraTransforms.TransformType transformType;
 
 	private class WeaponItemOverrideList extends ItemOverrideList {
-		public WeaponItemOverrideList(List<ItemOverride> overridesIn) {
+		public WeaponItemOverrideList(final List<ItemOverride> overridesIn) {
 			super(overridesIn);
 		}
 
 		@Override
-		public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
+		public IBakedModel handleItemState(final IBakedModel originalModel, final ItemStack stack, final World world, final EntityLivingBase entity) {
 			StaticModelSourceRenderer.this.itemStack = stack;
 			StaticModelSourceRenderer.this.owner = entity;
 			return super.handleItemState(originalModel, stack, world, entity);
 		}
 	}
 
-	public StaticModelSourceRenderer(ModelSourceTransforms transforms) {
+	public StaticModelSourceRenderer(final ModelSourceTransforms transforms) {
 		this.transforms = transforms;
 	}
 
-	public void renderCustomEquipped(EntityPlayer player, ItemStack itemStack) {
-		RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
+	public void renderCustomEquipped(final EntityPlayer player, final ItemStack itemStack) {
+		final RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
 		GlStateManager.pushMatrix();
 
-		GlStateManager.scale(0.33f, 0.33f, 0.33f);
+		GlStateManager.scale(0.33F, 0.33F, 0.33F);
 
-		// float pivotOffsetX = 0f;
-		// float pivotOffsetY = 0f;
-		// float pivotOffsetZ = 0f;
+		// float pivotOffsetX = 0F;
+		// float pivotOffsetY = 0F;
+		// float pivotOffsetZ = 0F;
 		// GlStateManager.translate(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
-		GlStateManager.rotate(180f, 0.001f, 0.0f, 0.0f);
+		GlStateManager.rotate(180, 0.001F, 0, 0);
 		// GlStateManager.translate(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
 
-		GlStateManager.translate(-0.5f, 0.5f, 0.5f);
+		GlStateManager.translate(-0.5F, 0.5F, 0.5F);
 
 		transforms.getCustomEquippedPositioning().run();
-		renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
+		renderModelSource(renderContext, itemStack, null, 0, 0, -0.4F, 0, 0, 0.08F);
 
 		GlStateManager.popMatrix();
 	}
 
 	@Override
-	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
+	public List<BakedQuad> getQuads(final IBlockState state, final EnumFacing side, final long rand) {
 		// TODO: Actually make rendering compatible with Emissive Renderer
 		if (net.minecraftforge.common.ForgeModContainer.allowEmissiveItems)
 			return Collections.emptyList();
@@ -172,25 +172,25 @@ public class StaticModelSourceRenderer extends ModelSource {
 		case GUI:
 			GlStateManager.scale(0.6F, 0.6F, 0.6F);
 			GlStateManager.translate(-0.7F, -0.8F, -0.1F);
-			GlStateManager.rotate(-30F, 1, 0, 0);
-			GlStateManager.rotate(40F, 0, 1, 0);
+			GlStateManager.rotate(-30, 1, 0, 0);
+			GlStateManager.rotate(40, 0, 1, 0);
 			GlStateManager.rotate(0, 0, 0, 1);
 			transforms.getInventoryPositioning().run();
 			break;
 		case THIRD_PERSON_RIGHT_HAND:
 		case THIRD_PERSON_LEFT_HAND:
 			GlStateManager.scale(0.4F, 0.4F, 0.4F);
-			GlStateManager.translate(-1.5f, -2.4f, 1.3f);
-			GlStateManager.rotate(-100F, 1f, 0f, 0f);
-			GlStateManager.rotate(50F, 0f, 1f, 0f);
-			GlStateManager.rotate(0F, 0f, 0f, 1f);
+			GlStateManager.translate(-1.5F, -2.4F, 1.3F);
+			GlStateManager.rotate(-100, 1, 0, 0);
+			GlStateManager.rotate(50, 0, 1, 0);
+			GlStateManager.rotate(0, 0, 0, 1);
 			transforms.getThirdPersonPositioning().run();
 			break;
 		case FIRST_PERSON_RIGHT_HAND:
 		case FIRST_PERSON_LEFT_HAND:
 			GlStateManager.scale(0.6F, 0.6F, 0.6F);
-			GlStateManager.rotate(-45F, 0f, 1f, 0f);
-			GlStateManager.translate(-0.3f, -0.855f, 0.5f);
+			GlStateManager.rotate(-45, 0, 1, 0);
+			GlStateManager.translate(-0.3F, -0.855F, 0.5F);
 			transforms.getFirstPersonPositioning().run();
 			WeaponRenderer.renderLeftArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonLeftHandPositioning().run());
 			WeaponRenderer.renderRightArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonRightHandPositioning().run());
@@ -203,30 +203,30 @@ public class StaticModelSourceRenderer extends ModelSource {
 		GlStateManager.popMatrix();
 	}
 
-	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	protected void renderModelSource(final RenderContext<RenderableState> renderContext, final ItemStack itemStack, final ItemCameraTransforms.TransformType transformType, final float limbSwing, final float limbSwingAmount, final float ageInTicks, final float netHeadYaw, final float headPitch, final float scale) {
 		if (itemStack.getItem() instanceof ItemCarryable) {
 			renderModelSourceCarryableItem(itemStack, transformType, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			return;
 		}
 
-		if (!(itemStack.getItem() instanceof com.paneedah.weaponlib.ModelSource)) {
+		if (!(itemStack.getItem() instanceof com.paneedah.weaponlib.ModelSource))
 			throw new IllegalArgumentException();
-		}
 
 		GlStateManager.pushMatrix();
 
-		com.paneedah.weaponlib.ModelSource modelSource = (com.paneedah.weaponlib.ModelSource) itemStack.getItem();
+		final com.paneedah.weaponlib.ModelSource modelSource = (com.paneedah.weaponlib.ModelSource) itemStack.getItem();
 
-		for (Tuple<ModelBase, String> texturedModel : modelSource.getTexturedModels()) {
+		for (final Tuple<ModelBase, String> texturedModel : modelSource.getTexturedModels()) {
 			if (texturedModel.getV().startsWith("customskin_")) {
 				MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().replace("customskin_", "")));
 			} else {
 				MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
 			}
+
 			GlStateManager.pushMatrix();
 			GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
-			ModelBase model = texturedModel.getU();
+			final ModelBase model = texturedModel.getU();
 
 			if (transformType != null) {
 				switch (transformType) {
@@ -254,12 +254,12 @@ public class StaticModelSourceRenderer extends ModelSource {
 			GlStateManager.popMatrix();
 		}
 
-		CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) modelSource.getPostRenderer();
+		final CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) modelSource.getPostRenderer();
 
 		// * As far as I know, we only post render stuff that has an instance, so I added that check, this may be incorrect - Luna Mira Lage (Desoroxxx) 2025-11-19
 		if (postRenderer != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
-			renderContext.setAgeInTicks(-0.4f);
-			renderContext.setScale(0.08f);
+			renderContext.setAgeInTicks(-0.4F);
+			renderContext.setScale(0.08F);
 			renderContext.setCompatibleTransformType(transformType);
 
 			renderContext.setPlayerItemInstance(MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(renderContext.getPlayer(), itemStack));
@@ -272,11 +272,12 @@ public class StaticModelSourceRenderer extends ModelSource {
 			GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
 			GlStateManager.popMatrix();
 		}
+
 		GlStateManager.popMatrix();
 	}
 
-	protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
+	protected void renderModelSourceCarryableItem(final ItemStack itemStack, final ItemCameraTransforms.TransformType transformType, final float limbSwing, final float limbSwingAmount, final float ageInTicks, final float netHeadYaw, final float headPitch, final float scale) {
+		final ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
 
 		final ModelBiped model = EquipmentModelPools.get(itemCarryable.modelName);
 
@@ -311,7 +312,7 @@ public class StaticModelSourceRenderer extends ModelSource {
 	}
 
 	@Override
-	public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType cameraTransformType) {
+	public Pair<? extends IBakedModel, Matrix4f> handlePerspective(final ItemCameraTransforms.TransformType cameraTransformType) {
 		this.transformType = cameraTransformType;
 		return pair;
 	}
