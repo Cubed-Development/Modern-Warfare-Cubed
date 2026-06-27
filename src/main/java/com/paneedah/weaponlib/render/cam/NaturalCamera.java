@@ -23,14 +23,18 @@ public class NaturalCamera {
 
     private static final LinkedList<Matrix4f> matrixStack = new LinkedList<>();
 
+    /// Enables Natural Camera. Desoroxxx has found a bug where if you start shooting and run the screenshake effect persists
+    /// so that needs to be investigated before it can be enabled again
+    private final boolean enableNaturalCamera = false;
+
     public void addToMatrixStack(Matrix4f mat) {
-        if(ModernConfigManager.enableNaturalCamera) {
+        if(enableNaturalCamera) {
             matrixStack.push(mat);
         }
     }
 
     public void update(PlayerWeaponInstance playerWeaponInstance) {
-        if(ModernConfigManager.enableNaturalCamera){
+        if(enableNaturalCamera){
             if (Double.isNaN(shockVector.getPosition().x)) {
                 shockVector = new SpringVector();
             }
