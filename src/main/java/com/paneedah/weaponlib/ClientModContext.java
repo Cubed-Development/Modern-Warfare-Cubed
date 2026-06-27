@@ -15,6 +15,7 @@ import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.perspective.PerspectiveManager;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import lombok.Getter;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
@@ -92,6 +93,8 @@ public class ClientModContext extends CommonModContext {
     @Override
     public void init(Object mod) {
         super.init(mod);
+
+        GLCompatible.init();
 
         rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
         rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());

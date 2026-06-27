@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.electronics.ScopePerspective;
 import com.paneedah.weaponlib.perspective.ReflexScreen;
-import com.paneedah.weaponlib.render.scopes.CyclicList;
+import com.paneedah.weaponlib.numerical.CyclicList;
 import com.paneedah.weaponlib.render.scopes.Reticle;
 import net.minecraft.client.renderer.GlStateManager;
 

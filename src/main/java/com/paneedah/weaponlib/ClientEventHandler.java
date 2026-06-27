@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.particle.ParticleBlood;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import com.paneedah.weaponlib.render.IHasModel;
-import com.paneedah.weaponlib.render.MWCFrameTimer;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import com.paneedah.weaponlib.render.shells.ShellManager;
 import com.paneedah.weaponlib.shader.dynamic.DynamicShaderContext;
@@ -246,7 +245,7 @@ public class ClientEventHandler {
                 PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
             }
 
-            if (mainHandHeldWeaponInstance != null && mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.syncStartTimestamp == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
+            if (mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.syncStartTimestamp == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
                 mainHandHeldWeaponInstance.reconcile();
             }
         } else {
@@ -310,8 +309,6 @@ public class ClientEventHandler {
         }
     }
 
-    public MWCFrameTimer frameTimer = new MWCFrameTimer();
-
     @SubscribeEvent
     public void onRenderWorldLastEvent(RenderWorldLastEvent event) {
         // Fills the model view matrix & projection matrix. Only used for world rendering.
@@ -322,14 +319,7 @@ public class ClientEventHandler {
         // Replaces the weather renderer.
         PostProcessPipeline.setWorldElements();
 
-        // Marks the frame-timer
-        frameTimer.markFrame();
-
-        // Todo: Optimize this
-        // Frame-timer syncs to 120
-        double divisor = 120 / frameTimer.getFramerate() * 0.05;
-        divisor = Math.min(0.08, divisor);
-        Interceptors.nsm.update();
+        Interceptors.SCREENSHAKING_MANAGER.update(event.getPartialTicks());
 
         BULLET_HOLE_RENDERER.render();
 

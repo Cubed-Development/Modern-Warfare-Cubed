@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.render;
+package com.paneedah.weaponlib.render.gui;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,7 +12,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.weaponlib.render.gui.ColorPalette.WHITE;
 
 /**
- * Radar Chart UI for visualising gun stats
+ * Radar Chart UI for visualizing gun stats
  */
 public class RadarChart {
 

@@ -15,7 +15,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
  * @since October 23rd, 2022
  */
 @Getter @Setter
-public class SpringValue {
+public class SpringValue implements ISimulator {
 
     /**
      * Integration Series:

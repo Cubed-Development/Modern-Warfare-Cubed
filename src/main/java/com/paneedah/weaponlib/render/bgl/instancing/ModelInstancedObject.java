@@ -8,6 +8,9 @@ import com.paneedah.weaponlib.shader.Shader;
 import com.paneedah.weaponlib.shader.ShaderLoader;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
+
+
 public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
 
     private final WavefrontModel model;
@@ -17,7 +20,7 @@ public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
         this.model = model;
 
         if (!model.usesVAO()) {
-            System.err.println("Does not support VAOs!");
+            LOGGER.error("ModelInstancedObject requires a model with VAO support, but the provided model does not use VAOs!");
         }
 
         VAOData vaoData = new VAOData(model.getVAOID(), model.vertices.size());

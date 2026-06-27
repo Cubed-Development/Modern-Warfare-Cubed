@@ -4,27 +4,39 @@ import com.paneedah.weaponlib.config.ModernConfigManager;
 import org.apache.commons.lang3.SystemUtils;
 import org.lwjgl.opengl.*;
 
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
+
 public class GLCompatible {
 
-    // Types
-    public static final int NORMAL = 0;
-    public static final int ARB = 1;
-    public static final int EXT = 2;
-    public static final int APPLE = 3;
-    public static final int ATI = 4;
+    /**
+     * Enum representing different OpenGL implementation types.
+     * Each type indicates whether instancing is supported via {@link #supportsInstancing}.
+     */
+    public enum GLImplementation {
+        UNKNOWN_OR_UNSUPPORTED(false),
+        NORMAL(true),
+        ARB(true),
+        EXT(true),
+        APPLE(false),
+        ATI(true);
 
-    // Support
-    public static boolean supportsInstancing = true;
+        public final boolean supportsInstancing;
 
-    // methods
-    public static int fboType = -1;
-    public static int msaaType = -1;
-    public static int vaoType = -1;
-    public static int instancingType = -1;
+        GLImplementation(boolean supportsInstancing){
+            this.supportsInstancing = supportsInstancing;
+        }
+    }
 
-    public static int attribDivisorType = -1;
-
-    public static int multisampleType = -1;
+    /** Currently detected framebuffer object type */
+    public static GLImplementation fboType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
+    /** Currently detected vertex array object type */
+    public static GLImplementation vaoType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
+    /** Currently detected instancing type */
+    public static GLImplementation instancingType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
+    /** Currently detected vertex attribute type */
+    public static GLImplementation attribDivisorType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
+    /** Currently detected multisampling type */
+    public static GLImplementation multisampleType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
 
     public static int GL_READ_FRAMEBUFFER;
     public static int GL_DRAW_FRAMEBUFFER;
@@ -41,11 +53,23 @@ public class GLCompatible {
     // Vertex array object
     public static int GL_VERTEX_ARRAY_BINDING;
 
-    public static boolean isLoaded = false;
 
-
+    /**
+     * Do we support using instances?
+     *
+     * @return true if {@link #instancingType} is true and shaders are enabled, false otherwise
+     */
     public static boolean doesSupportInstancing() {
-        return supportsInstancing && ModernConfigManager.enableAllShaders;
+        return instancingType.supportsInstancing && ModernConfigManager.enableAllShaders;
+    }
+
+    /**
+     * Do we support multisample?
+     *
+     * @return true if {@link #multisampleType} is anything other than {@link GLImplementation#UNKNOWN_OR_UNSUPPORTED}
+     */
+    public static boolean doesSupportMultisample() {
+        return !(multisampleType == GLImplementation.UNKNOWN_OR_UNSUPPORTED);
     }
 
     /*
@@ -147,7 +171,6 @@ public class GLCompatible {
                 GL31.glDrawArraysInstanced(mode, first, count, priMCount);
                 break;
             case ARB:
-
                 ARBDrawInstanced.glDrawArraysInstancedARB(mode, first, count, priMCount);
                 break;
             case EXT:
@@ -156,57 +179,59 @@ public class GLCompatible {
         }
     }
 
-    static {
-        init();
-    }
 
+    /**
+     * Does OpenGL compatibility detection.
+     * <p>
+     * Detects available OpenGL versions and extensions, and sets the enum types
+     * ({@link #vaoType}, {@link #fboType}, {@link #instancingType}, etc.) and constants.
+     */
     public static void init() {
-        if (isLoaded) {
-            return;
-        }
-        isLoaded = true;
 
         ContextCapabilities cap = GLContext.getCapabilities();
 
+        // Attribute divisor (instancing)
         if (cap.OpenGL33) {
-            attribDivisorType = NORMAL;
+            attribDivisorType = GLImplementation.NORMAL;
         } else if (cap.GL_ARB_instanced_arrays) {
-            attribDivisorType = ARB;
+            attribDivisorType = GLImplementation.ARB;
         } else {
-            supportsInstancing = false;
+            attribDivisorType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
         }
 
+        // Instancing
         if (cap.OpenGL31) {
-            instancingType = NORMAL;
+            instancingType = GLImplementation.NORMAL;
         } else if (cap.GL_ARB_draw_instanced) {
-            instancingType = ARB;
+            instancingType = GLImplementation.ARB;
         } else if (cap.GL_EXT_draw_instanced) {
-            instancingType = EXT;
+            instancingType = GLImplementation.EXT;
         } else {
-            supportsInstancing = false;
+            instancingType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
         }
 
-
-        // Please fix ;(
+        // Disable instancing on Mac
         if (SystemUtils.IS_OS_MAC) {
-            supportsInstancing = false;
+            instancingType = GLImplementation.APPLE;
         }
 
-        // Vertex array objects
+        // Vertex Array Objects
         if (cap.OpenGL30) {
-            vaoType = NORMAL;
+            vaoType = GLImplementation.NORMAL;
             GL_VERTEX_ARRAY_BINDING = GL30.GL_VERTEX_ARRAY_BINDING;
         } else if (cap.GL_ARB_vertex_array_object) {
-            vaoType = ARB;
+            vaoType = GLImplementation.ARB;
             GL_VERTEX_ARRAY_BINDING = ARBVertexArrayObject.GL_VERTEX_ARRAY_BINDING;
         } else if (cap.GL_APPLE_vertex_array_object) {
+            vaoType = GLImplementation.APPLE;
             GL_VERTEX_ARRAY_BINDING = APPLEVertexArrayObject.GL_VERTEX_ARRAY_BINDING_APPLE;
-            vaoType = APPLE;
+        } else {
+            vaoType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
         }
-        //System.out.println("VAO TYPE: " + vaoType);
 
+        // Framebuffer Objects
         if (cap.OpenGL30) {
-            fboType = 0;
+            fboType = GLImplementation.NORMAL;
             GL_READ_FRAMEBUFFER = GL30.GL_READ_FRAMEBUFFER;
             GL_DRAW_FRAMEBUFFER = GL30.GL_DRAW_FRAMEBUFFER;
             GL_FRAMEBUFFER = GL30.GL_FRAMEBUFFER;
@@ -214,7 +239,7 @@ public class GLCompatible {
             GL_DEPTH_ATTACHMENT = GL30.GL_DEPTH_ATTACHMENT;
             GL_COLOR_ATTACHMENT0 = GL30.GL_COLOR_ATTACHMENT0;
         } else if (cap.GL_ARB_framebuffer_object) {
-            fboType = 1;
+            fboType = GLImplementation.ARB;
             GL_READ_FRAMEBUFFER = ARBFramebufferObject.GL_READ_FRAMEBUFFER;
             GL_DRAW_FRAMEBUFFER = ARBFramebufferObject.GL_DRAW_FRAMEBUFFER;
             GL_FRAMEBUFFER = ARBFramebufferObject.GL_FRAMEBUFFER;
@@ -222,17 +247,19 @@ public class GLCompatible {
             GL_COLOR_ATTACHMENT0 = ARBFramebufferObject.GL_COLOR_ATTACHMENT0;
             GL_DEPTH_ATTACHMENT = ARBFramebufferObject.GL_DEPTH_ATTACHMENT;
         } else if (cap.GL_EXT_framebuffer_object && cap.GL_EXT_framebuffer_blit) {
+            fboType = GLImplementation.EXT;
             GL_READ_FRAMEBUFFER = EXTFramebufferBlit.GL_READ_FRAMEBUFFER_EXT;
             GL_DRAW_FRAMEBUFFER = EXTFramebufferBlit.GL_DRAW_FRAMEBUFFER_EXT;
             GL_FRAMEBUFFER = EXTFramebufferObject.GL_FRAMEBUFFER_EXT;
             GL_COLOR_ATTACHMENT0 = EXTFramebufferObject.GL_COLOR_ATTACHMENT0_EXT;
             GL_DEPTH_ATTACHMENT = EXTFramebufferObject.GL_DEPTH_ATTACHMENT_EXT;
             GL_RENDERBUFFER = EXTFramebufferObject.GL_RENDERBUFFER_EXT;
-            fboType = 2;
         } else {
-            System.out.println("Framebuffer objects not supported");
+            fboType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
+            LOGGER.debug("Framebuffer objects not supported");
         }
 
+        // Floating-point textures
         if (cap.OpenGL30) {
             GL_RGBA16F = GL30.GL_RGBA16F;
         } else if (cap.GL_APPLE_float_pixels) {
@@ -242,34 +269,34 @@ public class GLCompatible {
         } else if (cap.GL_ATI_texture_float) {
             GL_RGBA16F = ATITextureFloat.GL_RGBA_FLOAT16_ATI;
         } else {
-            System.out.println("Floating point texture component not supported");
+            LOGGER.debug("Floating point texture component not supported");
         }
 
-
+        // Depth component
         if (cap.OpenGL14) {
             GL_DEPTH_COMPONENT24 = GL14.GL_DEPTH_COMPONENT24;
         } else if (cap.GL_ARB_depth_texture) {
             GL_DEPTH_COMPONENT24 = ARBDepthTexture.GL_DEPTH_COMPONENT24_ARB;
+        } else {
+            GL_DEPTH_COMPONENT24 = 0; // fallback
         }
 
-
+        // Multisampling
         if (cap.OpenGL32) {
-            multisampleType = NORMAL;
+            multisampleType = GLImplementation.NORMAL;
             GL_TEXTURE_2D_MULTISAMPLE = GL32.GL_TEXTURE_2D_MULTISAMPLE;
         } else if (cap.GL_ARB_texture_multisample) {
-            multisampleType = ARB;
+            multisampleType = GLImplementation.ARB;
             GL_TEXTURE_2D_MULTISAMPLE = ARBTextureMultisample.GL_TEXTURE_2D_MULTISAMPLE;
-
+        } else {
+            multisampleType = GLImplementation.UNKNOWN_OR_UNSUPPORTED;
         }
 
-
+        LOGGER.debug("GL Compatibility set");
     }
 
     public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height,
                                                boolean fixedsamplelocations) {
-
-        init();
-
         switch (multisampleType) {
             case NORMAL:
                 GL32.glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
@@ -286,7 +313,6 @@ public class GLCompatible {
     }
 
     public static int glGenFramebuffers() {
-        init();
         switch (fboType) {
             case NORMAL:
                 return GL30.glGenFramebuffers();
@@ -302,7 +328,6 @@ public class GLCompatible {
     }
 
     public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-        init();
         switch (fboType) {
             case NORMAL:
                 GL30.glFramebufferTexture2D(target, attachment, textarget, texture, level);
@@ -317,7 +342,6 @@ public class GLCompatible {
     }
 
     public static void glBindFramebuffer(int target, int framebuffer) {
-        init();
         switch (fboType) {
             case NORMAL:
                 GL30.glBindFramebuffer(target, framebuffer);
@@ -333,7 +357,6 @@ public class GLCompatible {
 
     public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1,
                                          int dstY1, int mask, int filter) {
-        init();
         switch (fboType) {
             case NORMAL:
                 GL30.glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);

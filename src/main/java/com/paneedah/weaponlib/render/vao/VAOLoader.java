@@ -18,7 +18,6 @@ public class VAOLoader {
         return new VAOData(vaoID, positions.length / 3);
     }
 
-
     public static int createVAO() {
         int vaoID = GL30.glGenVertexArrays();
         GL30.glBindVertexArray(vaoID);
@@ -56,7 +55,7 @@ public class VAOLoader {
         return buffer;
     }
 
-    public int createEmptyVBO(int floatCount) {
+    public static int createEmptyVBO(int floatCount) {
         int vbo = GL15.glGenBuffers();
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vbo);
         GL15.glBufferData(GL15.GL_ARRAY_BUFFER, floatCount * 4L, GL15.GL_STATIC_DRAW);
@@ -64,7 +63,7 @@ public class VAOLoader {
         return vbo;
     }
 
-    public void addInstancedAttribute(int vao, int vbo, int attribute, int dataSize, int instancedDataLength, int offset) {
+    public static void addInstancedAttribute(int vao, int vbo, int attribute, int dataSize, int instancedDataLength, int offset) {
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vbo);
         GLCompatible.glBindVertexArray(vao);
         GL20.glVertexAttribPointer(attribute, dataSize, GL11.GL_FLOAT, false, instancedDataLength * 4, offset * 4L);

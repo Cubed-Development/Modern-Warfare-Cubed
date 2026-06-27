@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.render.bgl.instancing;
 import com.paneedah.weaponlib.render.vao.VAOData;
 import com.paneedah.weaponlib.render.vao.VAOLoader;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
-import com.paneedah.weaponlib.render.bgl.ModernUtil;
 import com.paneedah.weaponlib.shader.Shader;
 import lombok.Getter;
 import lombok.Setter;
@@ -60,7 +59,7 @@ public abstract class BasicInstancedObject<K> {
 
         this.instancedBuffer = BufferUtils.createFloatBuffer(getInstanceDataLength() * getMaxObjects());
 
-        this.instanceVBO = ModernUtil.createEmptyVBO(this.maxObjects * this.instanceDataLength);
+        this.instanceVBO = VAOLoader.createEmptyVBO(this.maxObjects * this.instanceDataLength);
 
 
         // Add instanced attributes
@@ -68,7 +67,7 @@ public abstract class BasicInstancedObject<K> {
         int offset = 0;
         if (attribs != null) {
             for (InstancedAttribute attr : attribs) {
-                ModernUtil.addInstancedAttribute(vao.getVaoID(),
+                VAOLoader.addInstancedAttribute(vao.getVaoID(),
                         this.instanceVBO, attr.getAttributeID(),
                         attr.getAttributeType().getSize(), this.instanceDataLength,
                         offset);
@@ -83,20 +82,26 @@ public abstract class BasicInstancedObject<K> {
         GLCompatible.glBindVertexArray(0);
     }
 
+    /**
+     * Ran before we render everything, sets up to render
+     */
     protected void preRender() {
 
         renderShader.use();
         GLCompatible.glBindVertexArray(vao.getVaoID());
-        ModernUtil.enableVertexAttribRange(0, this.largestAttribute);
     }
 
+    /**
+     * Ran after we render everything, resets it back to how it was before
+     */
     protected void postRender() {
-        ModernUtil.disableVertexAttribRange(0, this.largestAttribute);
         GLCompatible.glBindVertexArray(0);
         renderShader.release();
     }
 
-    // This is where you'd fill the buffer with the necessary data
+    /**
+     * This is where you'd fill the buffer with the necessary data
+     */
     public abstract void updateData(K obj);
 
     public void render(int primCount) {

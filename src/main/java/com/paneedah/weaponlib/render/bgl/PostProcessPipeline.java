@@ -10,6 +10,7 @@ import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
+import lombok.Getter;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.particle.ParticleRain;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -77,8 +78,6 @@ public class PostProcessPipeline {
 	private static int depthTexture = -1;
 	*/
 
-    private static final int fauxColorTexture = -1;
-
 
     private static DepthTexture scopeDepthTexture;
     private static DepthTexture normalDepthTexture;
@@ -99,11 +98,12 @@ public class PostProcessPipeline {
 
     /**
      * This is a useful tool to easily renderer things to the distortion buffer
-     * without making GL calls in areas where it is inconvienent to.
+     * without making GL calls in areas where it is inconvenient to.
      *
      * @author Homer Riva-Cambrin, 2022
      * @version September 28th, 2022
      */
+    @Getter
     public static class DistortionPoint {
         private final float x;
         private final float y;
@@ -126,35 +126,6 @@ public class PostProcessPipeline {
             this.alpha = 1.0f - (System.currentTimeMillis() - creationTime) / life;
 
         }
-
-        public float getAlpha() {
-            return this.alpha;
-        }
-
-        public float getX() {
-            return this.x;
-        }
-
-        public float getY() {
-            return this.y;
-        }
-
-        public float getZ() {
-            return this.z;
-        }
-
-        public float getSize() {
-            return this.size;
-        }
-
-        public float getLife() {
-            return this.life;
-        }
-
-        public long getBirthTime() {
-            return creationTime;
-        }
-
     }
 
     /**
@@ -469,7 +440,7 @@ public class PostProcessPipeline {
 		distortionBuffer.bindFramebuffer(false);
 
 		*/
-        distortionList.removeIf((s) -> (System.currentTimeMillis() - s.getBirthTime() > s.getLife()));
+        distortionList.removeIf((s) -> (System.currentTimeMillis() - s.getCreationTime() > s.getLife()));
 
         for (DistortionPoint dp : distortionList)
             dp.update();
