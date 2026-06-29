@@ -50,7 +50,7 @@ void main(){
 	
 	if(useSkin) {
 		vec4 skin = texture2D(skin, texCoord*2);
-		primary.rgb = blendColorDodge(primary.rgb, skin.rgb);
+		primary.rgb = skin.rgb;
 	}
 	
 
