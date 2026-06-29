@@ -25,7 +25,7 @@ vec3 blendOverlay(vec3 base, vec3 blend) {
 }
 
 float blendColorDodge(float base, float blend) {
-	return (blend==1.0)?blend:min(base/(1.0-blend),1.0);
+	return (blend == 1.0) ? blend : min(base / (1.0-blend),1.0);
 }
 
 vec3 blendColorDodge(vec3 base, vec3 blend) {
@@ -41,22 +41,15 @@ vec4 overlay(vec4 one, vec4 two) {
 }
 
 
-void main(){
-
+void main() {
    	float dist = length(texCoord);
-
 
 	vec4 primary = texture2D(tex0, texCoord);
 	
-	if(useSkin) {
+	if (useSkin) {
 		vec4 skin = texture2D(skin, texCoord*2);
 		primary.rgb = skin.rgb;
 	}
-	
-
-	
-	
-	
 	
 	vec4 orange = vec4(0.97, 0.81, 0.34, 0.1);
 
@@ -82,13 +75,10 @@ void main(){
     vec4 flash = vec4((orange*intensity*lightIntensity).rgb, primary.a)*(1-light)*1.5;
 	flash *= 1.5;
 	
-	
-	
 	gl_FragColor = vec4(primary.rgb*lightSum, primary.a)*light+ flash;
 	
-	if(disabled) {
+	if (disabled) {
 		gl_FragColor.r *= 3.0;
 		gl_FragColor.a = 0.5;
 	}
-
 }
