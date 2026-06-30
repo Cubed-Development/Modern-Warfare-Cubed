@@ -175,7 +175,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         if (objectMouseOver != null) {
             EntityPlayer player = MC.player;
             World world = player.world;
-            player.playSound(isHeavyAttack ? meleeInstance.getMelee().getHeavyAtackSound() : meleeInstance.getMelee().getLightAtackSound(), 1, 1);
+            player.playSound(isHeavyAttack ? meleeInstance.getMelee().getHeavyAttackSound() : meleeInstance.getMelee().getAttackSound(), 1, 1);
 
             switch (objectMouseOver.typeOfHit) {
                 case ENTITY:

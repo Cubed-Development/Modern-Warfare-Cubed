@@ -3,12 +3,11 @@ package com.paneedah.weaponlib.melee;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.Tags;
+import com.paneedah.mwc.weapons.AbstractItemBuilder;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -21,6 +20,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import org.lwjgl.input.Keyboard;
 
+import javax.annotation.Nonnull;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -33,27 +33,24 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 public class ItemMelee extends Item implements
         PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {
 
-    public static class Builder {
+    public static class Builder extends AbstractItemBuilder<Builder> {
 
         private static final int DEFAULT_PREPARE_STUB_TIMEOUT = 100;
 
         private static final int DEFAULT_ATTACK_COOLDOWN_TIMEOUT = 500;
         private static final int DEFAULT_HEAVY_ATTACK_COOLDOWN_TIMEOUT = 1000;
 
-        String name;
         List<String> textureNames = new ArrayList<>();
 
         private String attackSound;
         private String heavyAttackSound;
 
-        private CreativeTabs creativeTab;
         private MeleeRenderer renderer;
 
         Map<ItemAttachment<ItemMelee>, CompatibleAttachment<ItemMelee>> compatibleAttachments = new HashMap<>();
 
         private Class<? extends WeaponSpawnEntity> spawnEntityClass;
 
-        private Object[] craftingMaterials;
         public float attackDamage = 1f;
         public float heavyAttackDamage = 2f;
         public Supplier<Integer> prepareStubTimeout = () -> DEFAULT_PREPARE_STUB_TIMEOUT;
@@ -84,11 +81,6 @@ public class ItemMelee extends Item implements
             return this;
         }
 
-        public Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
         public Builder withAttackDamage(float attackDamage) {
             this.attackDamage = attackDamage;
             return this;
@@ -113,11 +105,6 @@ public class ItemMelee extends Item implements
 
         public Builder withHeavyAttackSound(String heavyAttackSound) {
             this.heavyAttackSound = heavyAttackSound.toLowerCase(); //ID + ":" + reloadSound;
-            return this;
-        }
-
-        public Builder withCreativeTab(CreativeTabs creativeTab) {
-            this.creativeTab = creativeTab;
             return this;
         }
 
@@ -184,7 +171,7 @@ public class ItemMelee extends Item implements
             itemMelee.attackSound = this.attackSound != null ? modContext.registerSound(this.attackSound) : SoundEvents.AMBIENT_CAVE;
             itemMelee.heavyAttackSound = this.heavyAttackSound != null ? modContext.registerSound(this.heavyAttackSound) : SoundEvents.AMBIENT_CAVE;
 
-            itemMelee.setCreativeTab(creativeTab);
+            itemMelee.setCreativeTab(tab);
             itemMelee.setTranslationKey(name);
 
             modContext.registerMeleeWeapon(name, itemMelee, renderer);
@@ -207,13 +194,8 @@ public class ItemMelee extends Item implements
 
     private final ModContext modContext;
 
-    private SoundEvent attackSound;
-    private SoundEvent silencedShootSound;
-    private SoundEvent heavyAttackSound;
-    private SoundEvent unloadSound;
-    private SoundEvent ejectSpentRoundSound;
-
-    public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
+    @Getter private SoundEvent attackSound;
+    @Getter private SoundEvent heavyAttackSound;
 
     ItemMelee(Builder builder, ModContext modContext) {
         this.builder = builder;
@@ -222,36 +204,12 @@ public class ItemMelee extends Item implements
     }
 
     public String getName() {
-        return builder.name;
-    }
-
-    public SoundEvent getShootSound() {
-        return attackSound;
-    }
-
-    public SoundEvent getSilencedShootSound() {
-        return silencedShootSound;
-    }
-
-    public SoundEvent getReloadSound() {
-        return heavyAttackSound;
-    }
-
-    public SoundEvent getUnloadSound() {
-        return unloadSound;
-    }
-
-    public SoundEvent getEjectSpentRoundSound() {
-        return ejectSpentRoundSound;
+        return builder.getName();
     }
 
     @Override
-    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack itemStack) {
+    public boolean onEntitySwing(@Nonnull EntityLivingBase entityLiving, @Nonnull ItemStack itemStack) {
         return true;
-    }
-
-    @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean active) {
     }
 
     Map<ItemAttachment<ItemMelee>, CompatibleAttachment<ItemMelee>> getCompatibleAttachments() {
@@ -264,7 +222,7 @@ public class ItemMelee extends Item implements
     }
 
     @Override
-    public int getMaxItemUseDuration(ItemStack itemStack) {
+    public int getMaxItemUseDuration(@Nonnull ItemStack itemStack) {
         return 0;
     }
 
@@ -278,14 +236,13 @@ public class ItemMelee extends Item implements
     }
 
     List<ItemAttachment<ItemMelee>> getCompatibleAttachments(Class<? extends ItemAttachment<ItemMelee>> target) {
-        return builder.compatibleAttachments.entrySet().stream()
-                .filter(e -> target.isInstance(e.getKey()))
-                .map(e -> e.getKey())
+        return builder.compatibleAttachments.keySet().stream()
+                .filter(target::isInstance)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+    public void addInformation(@Nonnull ItemStack itemStack, World worldIn, @Nonnull List<String> tooltip, ITooltipFlag flagIn) {
         final TextFormatting green = TextFormatting.GREEN;
         final TextFormatting grey = TextFormatting.GRAY;
         final TextFormatting red = TextFormatting.RED;
@@ -359,11 +316,6 @@ public class ItemMelee extends Item implements
         return builder.textureNames.get(0);
     }
 
-    public ApplyHandler2<ItemMelee> getEquivalentHandler(AttachmentCategory attachmentCategory) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
     public void attack(final EntityPlayer player, final boolean heavy) {
         if (heavy) {
             modContext.getMeleeAttackAspect().onHeavyAttackButtonClick(player);
@@ -380,7 +332,7 @@ public class ItemMelee extends Item implements
 //    }
 
     @Override
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase player) {
+    public boolean hitEntity(@Nonnull ItemStack stack, @Nonnull EntityLivingBase target, @Nonnull EntityLivingBase player) {
         //target.attackEntityFrom(DamageSource.fall, builder.damage);
         PlayerItemInstance<?> instance = Tags.getInstance(stack);
         if (instance instanceof PlayerMeleeInstance) {
@@ -409,14 +361,6 @@ public class ItemMelee extends Item implements
         return builder.heavyAttackCooldownTimeout.get();
     }
 
-    public SoundEvent getHeavyAtackSound() {
-        return heavyAttackSound;
-    }
-
-    public SoundEvent getLightAtackSound() {
-        return attackSound;
-    }
-
     @Override
     public Collection<CompatibleAttachment<? extends AttachmentContainer>> getCompatibleAttachments(
             AttachmentCategory... categories) {
@@ -427,7 +371,7 @@ public class ItemMelee extends Item implements
 
     // Todo: Remove this method once models are fixed to be at correct height
     @Override
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+    public boolean shouldCauseReequipAnimation(@Nonnull ItemStack oldStack, @Nonnull ItemStack newStack, boolean slotChanged) {
         return true;
     }
 }
