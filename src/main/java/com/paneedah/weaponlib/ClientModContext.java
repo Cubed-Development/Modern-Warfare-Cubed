@@ -156,7 +156,7 @@ public class ClientModContext extends CommonModContext {
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
         super.registerMeleeWeapon(name, itemMelee, renderer);
-        rendererRegistry.register(itemMelee, itemMelee.getTextureName(), itemMelee.getRenderer());
+        rendererRegistry.register(itemMelee, itemMelee.getName(), itemMelee.getRenderer());
         renderer.setClientModContext(this);
     }
 
