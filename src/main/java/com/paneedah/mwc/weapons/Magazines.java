@@ -177,9 +177,6 @@ public class Magazines {
                     GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
-//                .withCrafting(CraftingComplexity.MEDIUM,
-//                          MwItems.steelIngot,
-//                          MwItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 */
         Magazines.BrenMag = new ItemMagazine.Builder()

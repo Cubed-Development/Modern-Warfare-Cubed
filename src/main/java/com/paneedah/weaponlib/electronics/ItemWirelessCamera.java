@@ -5,7 +5,6 @@ import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.mwc.weapons.AbstractItemBuilder;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
-import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -15,12 +14,9 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -127,26 +123,6 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             if (model != null || !texturedModels.isEmpty()) {
                 modContext.registerRenderableItem(name, camera,
                         FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
-            }
-
-            if (craftingComplexity != null) {
-                OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
-                        .withSlotCount(9)
-                        .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
-
-                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(camera, name, optionsMetadata);
-
-                ItemStack itemStack = new ItemStack(camera);
-                itemStack.setCount(craftingCount);
-                if (optionsMetadata.isHasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
-                            .setMirrored(false)
-                            .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-                } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
-                            .setMirrored(false)
-                            .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-                }
             }
 
             return camera;
