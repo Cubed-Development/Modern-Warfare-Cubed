@@ -328,24 +328,6 @@ public class ItemGrenade extends Item implements
 
             if (craftingRecipe != null && craftingRecipe.length >= 2) {
                 modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
-            } else if (craftingComplexity != null) {
-                OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
-                        .withSlotCount(9)
-                        .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
-
-                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(grenade, name, optionsMetadata);
-
-                ItemStack itemStack = new ItemStack(grenade);
-                itemStack.setCount(craftingCount);
-                if (optionsMetadata.isHasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
-                            .setMirrored(false)
-                            .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-                } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
-                            .setMirrored(false)
-                            .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-                }
             }
 
             return grenade;

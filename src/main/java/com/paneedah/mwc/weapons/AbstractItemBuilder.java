@@ -1,7 +1,6 @@
 package com.paneedah.mwc.weapons;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,7 +11,6 @@ public abstract class AbstractItemBuilder<T extends AbstractItemBuilder<T>> {
     @Getter protected ModelBase model;
     protected CreativeTabs tab;
 
-    protected CraftingComplexity craftingComplexity;
     protected Object[] craftingMaterials;
     protected int craftingCount = 1;
 
@@ -41,28 +39,6 @@ public abstract class AbstractItemBuilder<T extends AbstractItemBuilder<T>> {
     @SuppressWarnings("unchecked")
     public T withMaxStackSize(int maxStackSize) {
         this.maxStackSize = maxStackSize;
-        return (T) this;
-    }
-
-    @SuppressWarnings("unchecked")
-    public T withCrafting(CraftingComplexity complexity, Object... materials) {
-        return withCrafting(1, complexity, materials);
-    }
-
-    @SuppressWarnings("unchecked")
-    public T withCrafting(int craftingCount, CraftingComplexity complexity, Object... materials) {
-        if (complexity == null) {
-            throw new IllegalArgumentException("Crafting complexity not set");
-        }
-        if (materials.length < 2) {
-            throw new IllegalArgumentException("2 or more materials required for crafting");
-        }
-        if (craftingCount == 0) {
-            throw new IllegalArgumentException("Invalid item count");
-        }
-        this.craftingComplexity = complexity;
-        this.craftingMaterials = materials;
-        this.craftingCount = craftingCount;
         return (T) this;
     }
 

@@ -4,7 +4,6 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.init.Items;
 
@@ -57,7 +56,6 @@ public class Bullets {
         Grenade40mm = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Grenade40mm").withMaxStackSize(16)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
-                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning(() -> {
                     GlStateManager.translate(0.1F, -1.2F, 0.4F);
                     GlStateManager.rotate(30F, 0f, 1f, 0f);
@@ -79,7 +77,6 @@ public class Bullets {
         M202Rocket = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("m202rocket").withMaxStackSize(4)
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
-                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
                 .withFirstPersonPositioning(() -> {
                     GlStateManager.translate(0.1F, -1.2F, 0.4F);
                     GlStateManager.rotate(30F, 0f, 1f, 0f);
@@ -101,7 +98,6 @@ public class Bullets {
         RPGRocket = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("rpg7_rocket").withMaxStackSize(2)
                 .withModel(new com.paneedah.mwc.models.RPG7rocketPROJECTILE(), "rpg7.png")
-                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
                 .withFirstPersonPositioning(() -> {
                     GlStateManager.translate(0.1F, -1.2F, 0.4F);
                     GlStateManager.rotate(30F, 0f, 1f, 0f);
@@ -124,7 +120,6 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("EnergyCase")
                 .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
                 .withMaxStackSize(64)
-                .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning(() -> {
                     GlStateManager.translate(0.1F, -1F, 0.4F);
                     GlStateManager.rotate(30F, 0f, 1f, 0f);
@@ -146,7 +141,6 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("PlasmaCapsule")
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png")
                 .withMaxStackSize(64)
-                //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
                 .withFirstPersonPositioning(() -> {
                     GlStateManager.translate(0.1F, -0.3F, 0.4F);
                     GlStateManager.rotate(30F, 0f, 1f, 0f);

@@ -228,18 +228,6 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
 
         if (craftingRecipe != null && craftingRecipe.length >= 2) {
             modContext.getRecipeManager().registerShapedRecipe(attachment, craftingRecipe);
-        } else if (craftingComplexity != null) {
-            OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
-                    .withSlotCount(9)
-                    .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
-
-            List<Object> shape = modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
-
-            ItemStack itemStack = new ItemStack(attachment);
-            itemStack.setCount(craftingCount);
-
-            ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false)
-                    .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
         } else if (attachment.getCategory() == AttachmentCategory.GRIP
                 || attachment.getCategory() == AttachmentCategory.SCOPE
                 || attachment.getCategory() == AttachmentCategory.MAGAZINE

@@ -5845,6 +5845,96 @@
       ]
     },
     {
+      "entryName": "mwc:Grenade40mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "ingotCopper",
+          "defaultItem": "mwc:copper_ingot",
+          "isOreDictionary": true,
+          "count": 8
+        },
+        {
+          "entryName": "gunpowder",
+          "defaultItem": "minecraft:gunpowder",
+          "isOreDictionary": true,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:m202rocket",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "ingotCopper",
+          "defaultItem": "mwc:copper_ingot",
+          "isOreDictionary": true,
+          "count": 8
+        },
+        {
+          "entryName": "gunpowder",
+          "defaultItem": "minecraft:gunpowder",
+          "isOreDictionary": true,
+          "count": 8
+        },
+        {
+          "entryName": "plateGunmetal",
+          "defaultItem": "mwc:gunmetal_plate",
+          "isOreDictionary": true,
+          "count": 4
+        },
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:rpg7_rocket",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "ingotCopper",
+          "defaultItem": "mwc:copper_ingot",
+          "isOreDictionary": true,
+          "count": 8
+        },
+        {
+          "entryName": "gunpowder",
+          "defaultItem": "minecraft:gunpowder",
+          "isOreDictionary": true,
+          "count": 8
+        },
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:EnergyCase",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "ingotCopper",
+          "defaultItem": "mwc:copper_ingot",
+          "isOreDictionary": true,
+          "count": 4
+        },
+        {
+          "entryName": "gunpowder",
+          "defaultItem": "minecraft:gunpowder",
+          "isOreDictionary": true,
+          "count": 6
+        }
+      ]
+    },
+    {
       "entryName": "mwc:Bullet3006Springfield",
       "craftingGroup": "BULLET",
       "recipe": [
