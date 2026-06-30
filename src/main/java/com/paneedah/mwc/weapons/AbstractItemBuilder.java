@@ -11,9 +11,6 @@ public abstract class AbstractItemBuilder<T extends AbstractItemBuilder<T>> {
     @Getter protected ModelBase model;
     protected CreativeTabs tab;
 
-    protected Object[] craftingMaterials;
-    protected int craftingCount = 1;
-
     protected int maxStackSize = 1;
 
     // Common methods returning T for fluent chaining
