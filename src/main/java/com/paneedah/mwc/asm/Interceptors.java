@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
-import com.paneedah.weaponlib.render.ScreenshakingManager;
+import com.paneedah.weaponlib.render.NewScreenshakingManager;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import com.paneedah.weaponlib.render.cam.NaturalCamera;
 import com.paneedah.weaponlib.vehicle.*;
@@ -52,7 +52,7 @@ public class Interceptors {
         return item instanceof ItemBlock;
     }
 
-    public static final NaturalCamera NATURAL_CAMERA = new NaturalCamera();
+    public static NaturalCamera nc = new NaturalCamera();
 
     public static void setupCameraTransformAfterHurtCameraEffect(float partialTicks) {
         //if(1+1==2) return;
@@ -328,7 +328,7 @@ public class Interceptors {
             //nc.update();
         }
 
-        SCREENSHAKING_MANAGER.applyWorld();
+        nsm.applyWorld();
     	
     	/*
     	if(weaponInstance != null) {
@@ -371,7 +371,10 @@ public class Interceptors {
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
 
-            NATURAL_CAMERA.update(pwi);
+
+            nc.update();
+
+            //System.out.println(ClientModContext.getContext());
         }
 
 
@@ -546,6 +549,14 @@ public class Interceptors {
             RenderVehicle2.captureCameraTransform(null);
         }
 
+
+        nsm.applyHead();
+        //nsm.update();
+
+
+        // if(true) return false;
+
+
         if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableScreenShaders) {
             GlStateManager.disableLighting();
             GlStateManager.disableBlend();
@@ -557,10 +568,15 @@ public class Interceptors {
             GlStateManager.enableDepth();
         }
 
+        //  System.out.println("hi");
         return false;
     }
 
-    public static final ScreenshakingManager SCREENSHAKING_MANAGER = new ScreenshakingManager();
+    public static void renderLastEvent() {
+
+    }
+
+    public static NewScreenshakingManager nsm = new NewScreenshakingManager();
 
     public static boolean hurtCameraEffect(float partialTicks) {
 //	    if(1+1==2) return false;  

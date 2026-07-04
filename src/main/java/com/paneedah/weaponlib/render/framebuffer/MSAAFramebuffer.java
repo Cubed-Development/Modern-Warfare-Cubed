@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render.framebuffer;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.shader.Framebuffer;
 import org.lwjgl.opengl.*;

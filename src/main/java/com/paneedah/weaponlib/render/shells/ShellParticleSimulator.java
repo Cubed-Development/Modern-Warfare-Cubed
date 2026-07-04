@@ -2,8 +2,6 @@ package com.paneedah.weaponlib.render.shells;
 
 import dev.redstudio.redcore.math.vectors.Vector3D;
 import dev.redstudio.redcore.math.vectors.Vector3F;
-import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -22,7 +20,6 @@ public class ShellParticleSimulator {
     private static final int SHELL_LIFE = 1024;
     private static final double RESTITUTION = 0.3;
 
-    @Getter @Setter
     public static class Shell {
 
         public enum Type {
@@ -72,6 +69,14 @@ public class ShellParticleSimulator {
             this.prevRot = new Vector3d(Math.random() * 100, Math.random() * 100, Math.random() * 100);
         }
 
+        public Type getType() {
+            return this.type;
+        }
+
+        public boolean isSleeping() {
+            return this.sleeping;
+        }
+
         public void sleep() {
             this.sleeping = true;
         }
@@ -80,9 +85,26 @@ public class ShellParticleSimulator {
             this.sleeping = false;
         }
 
+        public void setType(Type type) {
+            this.type = type;
+        }
+
         public void ageShell() {
             this.age++;
         }
+
+        public int getAge() {
+            return this.age;
+        }
+
+        public void setHeight(double height) {
+            this.height = height;
+        }
+
+        public double getHeight() {
+            return this.height;
+        }
+
 
         public boolean shouldDie() {
             return this.shouldDie;
@@ -90,6 +112,10 @@ public class ShellParticleSimulator {
 
         public void kill() {
             setShouldDie(true);
+        }
+
+        public void setShouldDie(boolean state) {
+            this.shouldDie = state;
         }
 
     }
@@ -101,7 +127,7 @@ public class ShellParticleSimulator {
 
 
         // Removes old shells that were marked for death
-        shells.removeIf(Shell::shouldDie);
+        shells.removeIf((s) -> s.shouldDie());
 
 
         //dt = 1;

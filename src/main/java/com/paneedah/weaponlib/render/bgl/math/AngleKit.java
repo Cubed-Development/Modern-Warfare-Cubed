@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.render.bgl.math;
 
-import lombok.Getter;
 import org.lwjgl.util.vector.Quaternion;
 
 /**
@@ -18,7 +17,6 @@ public class AngleKit {
         DEGREES, RADIANS
     }
 
-    @Getter
     public static class AxisAngle {
         private final Format format;
         private final double angle;
@@ -42,6 +40,10 @@ public class AngleKit {
             return format == Format.DEGREES;
         }
 
+        public Format getFormat() {
+            return this.format;
+        }
+
         public AxisAngle toRadians() {
             if (format == Format.RADIANS) {
                 return this;
@@ -56,6 +58,22 @@ public class AngleKit {
             return new AxisAngle(Format.DEGREES, deg(angle), x, y, z);
         }
 
+        public double getAngle() {
+            return this.angle;
+        }
+
+        public double getX() {
+            return this.x;
+        }
+
+        public double getY() {
+            return this.y;
+        }
+
+        public double getZ() {
+            return this.z;
+        }
+
         @Override
         public String toString() {
             return "(" + angle + ", [" + x + ", " + y + ", " + z + "])";
@@ -63,7 +81,6 @@ public class AngleKit {
 
     }
 
-    @Getter
     public static class EulerAngle {
         private final Format format;
         private final double x;
@@ -83,6 +100,10 @@ public class AngleKit {
 
         public boolean isDegrees() {
             return format == Format.DEGREES;
+        }
+
+        public Format getFormat() {
+            return this.format;
         }
 
         public EulerAngle toRadians() {
@@ -109,6 +130,18 @@ public class AngleKit {
 
         public double getYaw() {
             return this.y;
+        }
+
+        public double getX() {
+            return this.x;
+        }
+
+        public double getY() {
+            return this.y;
+        }
+
+        public double getZ() {
+            return this.z;
         }
 
         public EulerAngle slerp(EulerAngle a1, double t) {

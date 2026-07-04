@@ -14,7 +14,7 @@ public class Vests {
                 .withName("m43a_chest_harness")
                 .withPercentDamageBlocked(0.1)
                 .withDurability(150)
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.M43AChestHarness", "m43achestharness.png")
 //        .withCustomEquippedPositioning(() -> {
 //            GlStateManager.scale(0.8f, 0.8f, 0.8f);
@@ -34,7 +34,7 @@ public class Vests {
                 .withName("flyye_field_compact_plate_carrier")
                 .withPercentDamageBlocked(0.2)
                 .withDurability(175)
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier.png")
 //        .withCustomEquippedPositioning(() -> {
 //            GlStateManager.scale(0.8f, 0.8f, 0.8f);
@@ -54,7 +54,7 @@ public class Vests {
                 .withName("molle_black")
                 .withPercentDamageBlocked(0.2)
                 .withDurability(175)
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_black.png")
 //        .withCustomEquippedPositioning(() -> {
 //            GlStateManager.scale(0.8f, 0.8f, 0.8f);
@@ -74,7 +74,7 @@ public class Vests {
                 .withName("molle_green")
                 .withPercentDamageBlocked(0.2)
                 .withDurability(175)
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_green.png")
 //        .withCustomEquippedPositioning(() -> {
 //            GlStateManager.scale(0.8f, 0.8f, 0.8f);
@@ -94,7 +94,7 @@ public class Vests {
                 .withName("molle_urban")
                 .withPercentDamageBlocked(0.2)
                 .withDurability(175)
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_urban.png")
 //        .withCustomEquippedPositioning(() -> {
 //            GlStateManager.scale(0.8f, 0.8f, 0.8f);
@@ -114,7 +114,7 @@ public class Vests {
                 .withName("swat_vest")
                 .withPercentDamageBlocked(0.3)
                 .withDurability(250)
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.UTG547Vest", "utg547vest.png")
                 .withCustomEquippedPositioning(() -> {
                     GlStateManager.scale(0.8f, 0.8f, 0.8f);
@@ -134,7 +134,7 @@ public class Vests {
                 .withName("usMC_vest")
                 .withPercentDamageBlocked(0.4)
                 .withDurability(250)
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMC.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {
@@ -160,7 +160,7 @@ public class Vests {
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
                 .withPercentDamageBlocked(0.4)
                 .withDurability(250) // works the same way as shield's max capacity
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMCvestblack.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {
@@ -186,7 +186,7 @@ public class Vests {
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
                 .withPercentDamageBlocked(0.4)
                 .withDurability(250) // works the same way as shield's max capacity
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformforest.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {
@@ -212,7 +212,7 @@ public class Vests {
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
                 .withPercentDamageBlocked(0.4)
                 .withDurability(250) // works the same way as shield's max capacity
-                .withCreativeTab(MWC.EQUIPMENT_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformurban.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {

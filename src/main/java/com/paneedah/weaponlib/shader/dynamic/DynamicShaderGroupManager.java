@@ -23,13 +23,13 @@ import java.util.UUID;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
-import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class DynamicShaderGroupManager {
 
     private static final String PATH_SHADER_PROGRAM = "shaders/post/program/";
 
-    private static final String RESOURCE_DOMAIN_SHADERS_PROGRAM = "shaders/post/program/" + ID;
+    private static final String RESOURCE_DOMAIN_MWC = "mwc";
+    private static final String RESOURCE_DOMAIN_SHADERS_PROGRAM = "shaders/post/program/" + RESOURCE_DOMAIN_MWC;
 
     private static class LoadedShaderGroup {
         DynamicShaderGroup group;
@@ -42,7 +42,7 @@ public class DynamicShaderGroupManager {
     private final Map<UUID, LoadedShaderGroup> loaded = new LinkedHashMap<>();
 
     public boolean hasActiveGroups() {
-        return !loaded.isEmpty();
+        return loaded.size() > 0;
     }
 
 //    public void applyShader(DynamicShaderContext shaderContext, DynamicShaderGroupSourceProvider shaderSourceProvider) {
@@ -169,15 +169,15 @@ public class DynamicShaderGroupManager {
         ResourceLocation result;
 
         switch (resourceLocation.getNamespace()) {
-            case ID:
+            case RESOURCE_DOMAIN_MWC:
                 if (resourceLocation.getPath().startsWith("shaders/program/")) {
-                    result = new ResourceLocation(ID, PATH_SHADER_PROGRAM + resourceLocation.getPath().substring(16));
+                    result = new ResourceLocation(RESOURCE_DOMAIN_MWC, PATH_SHADER_PROGRAM + resourceLocation.getPath().substring(16));
                 } else {
                     result = resourceLocation;
                 }
                 break;
 	        case RESOURCE_DOMAIN_SHADERS_PROGRAM:
-                result = new ResourceLocation(ID, PATH_SHADER_PROGRAM + resourceLocation.getPath());
+                result = new ResourceLocation(RESOURCE_DOMAIN_MWC, PATH_SHADER_PROGRAM + resourceLocation.getPath());
                 break;
             default:
                 result = resourceLocation;

@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.render.bgl.instancing.InstancedAttribute;
 import com.paneedah.weaponlib.render.bgl.instancing.ModelInstancedObject;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import com.paneedah.weaponlib.shader.Uniform;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.util.vector.Quaternion;
@@ -24,8 +25,16 @@ public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
 
     @Override
     protected void setupShader() {
+        // TODO Auto-generated method stub
         super.setupShader();
-        getRenderShader().withUniforms(shader -> GL20.glUniform1i(GL20.glGetUniformLocation(shader, "lightmap"), 1));
+        getRenderShader().withUniforms(new Uniform() {
+
+            @Override
+            public void apply(int shader) {
+                GL20.glUniform1i(GL20.glGetUniformLocation(shader, "lightmap"), 1);
+            }
+
+        });
     }
 
 

@@ -21,7 +21,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Bloom implementation based on
- * <a href="https://github.com/Drillgon200/Hbm-s-Nuclear-Tech-GIT/blob/30df900f4f7f3827133bc58fb26f922da5f3d909/src/main/java/com/hbm/handler/HbmShaderManager2.java#L285">HBM's</a>
+ * https://github.com/Drillgon200/Hbm-s-Nuclear-Tech-GIT/blob/30df900f4f7f3827133bc58fb26f922da5f3d909/src/main/java/com/hbm/handler/HbmShaderManager2.java#L285
  * using the techniques used in COD (Next Generation Post Processing by Jorge
  * Jiminez)
  *
@@ -72,7 +72,7 @@ public class Bloom {
 
     }
 
-    public static boolean bloomNotAvailable() {
+    public static boolean bloomNotAvaliable() {
         return data == null;
     }
 
@@ -90,7 +90,7 @@ public class Bloom {
          * if(data == null) { width = mc.displayWidth; height = mc.displayHeight;
          * recreateFramebuffers(); }
          */
-        if (bloomNotAvailable()) {
+        if (bloomNotAvaliable()) {
             return;
         }
 
@@ -356,7 +356,7 @@ public class Bloom {
     }
 
     public static void setupMultisampleBuffer() {
-        if (!GLCompatible.doesSupportMultisample()) {
+        if (GLCompatible.isLoaded && GLCompatible.multisampleType == -1) {
             return;
         }
         if (multisample && getWidthTimesHeight() == mRes) {
@@ -388,7 +388,7 @@ public class Bloom {
     }
 
     public static void initializeMultisample(Framebuffer initial) {
-        if (!GLCompatible.doesSupportMultisample()) {
+        if (GLCompatible.isLoaded && GLCompatible.multisampleType == -1) {
             return;
         }
         int gWidth = initial.framebufferWidth;
@@ -418,7 +418,7 @@ public class Bloom {
     }
 
     public static void unapplyMultisample(Framebuffer initial) {
-        if (!GLCompatible.doesSupportMultisample()) {
+        if (GLCompatible.isLoaded && GLCompatible.multisampleType == -1) {
             return;
         }
 

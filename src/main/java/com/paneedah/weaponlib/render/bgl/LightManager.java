@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.render.bgl;
 
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.shader.Shader;
-import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -13,7 +12,6 @@ import java.util.Stack;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-@Getter
 public class LightManager {
 
     public static final int MAX_POINT_LIGHTS = 32;
@@ -96,6 +94,10 @@ public class LightManager {
         }
     }
 
+
+    public ArrayList<PointLight> getLights() {
+        return lights;
+    }
 
     public void updateUniforms(Shader shader) {
         shader.uniform1i("totalActiveLights", lights.size());

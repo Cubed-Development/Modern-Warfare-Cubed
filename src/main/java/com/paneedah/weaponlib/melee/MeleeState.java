@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
 

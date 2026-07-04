@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.render.RadarChart;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
@@ -364,7 +365,7 @@ public class ModificationGUI {
         }
 
         /**
-         * Checks if mouse within the TexturedRect bounds
+         * Checks if mouse within GUI boundings
          *
          * @param guiX Top left X-coord of GUI
          * @param guiY Top left Y-coord of GUI
@@ -372,7 +373,7 @@ public class ModificationGUI {
          * @param mouseY Mouse coordinate
          * @param guiScale Scale of the gui
          *
-         * @return true or false if the mouse is within the TexturedRect
+         * @return
          */
         public boolean checkBounding(double guiX, double guiY, int mouseX, int mouseY, double guiScale) {
             return GUIRenderHelper.checkInBox(mouseX, mouseY, guiX + this.x * guiScale, guiY + this.y * guiScale,

@@ -26,9 +26,9 @@ public class ShellRegistry {
 
 
     static {
-        addShellToRegistry(Type.ASSAULT, "assaultshell");
-        addShellToRegistry(Type.SHOTGUN, "12gaugeshell");
-        addShellToRegistry(Type.PISTOL, "9mmshell");
+        addShellToRegistry(Type.ASSAULT, "assaultshell", "assaultshell");
+        addShellToRegistry(Type.SHOTGUN, "12gaugeshell", "12gaugeshell");
+        addShellToRegistry(Type.PISTOL, "9mmshell", "boolet9mm");
     }
 
 
@@ -39,29 +39,13 @@ public class ShellRegistry {
      * <p>
      * The texture is located in textures/models
      *
-     * @param type The shell Type to use for this model
-     * @param modelName The name of the model
-     * @param textureName The name of the texture
+     * @param type
+     * @param modelName
+     * @param textureName
      */
     public static void addShellToRegistry(Type type, String modelName, String textureName) {
         shellRegistrar.put(type, new Pair<>(WavefrontLoader.loadSubModel(modelName, "casing"),
                 QuickResourceLocation.quickLoc("models", textureName)));
-    }
-
-    /**
-     * Adds shell to registry.
-     * <p>
-     * Loads the model as a submodel, searches models/obj for a submodel called "casing" within the obj
-     * <p>
-     * The texture is located in textures/models
-     *
-     * @param type The shell Type to use for this model
-     * @param modelAndTextureName The name of the model and texture (provided they match)
-     *
-     * @see #addShellToRegistry(Type, String, String)
-     */
-    public static void addShellToRegistry(Type type, String modelAndTextureName) {
-        addShellToRegistry(type, modelAndTextureName, modelAndTextureName);
     }
 
     public static HashMap<Shell.Type, Pair<WavefrontModel, ResourceLocation>> getShellMappings() {
